@@ -1,0 +1,60 @@
+.cube-3d
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    perspective: 800px;
+}
+
+.cube-3d *
+{
+    transform-style: preserve-3d;
+}
+
+.cube-3d .y-axis
+{
+    animation: cube-3d-rotation-y 8s infinite linear;
+}
+
+@keyframes cube-3d-rotation-y
+{
+    0%   { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.cube-3d .x-axis
+{
+    animation: cube-3d-rotation-x 13s infinite linear;
+}
+
+@keyframes cube-3d-rotation-x
+{
+    0%   { transform: rotateX(0deg); }
+    100% { transform: rotateX(360deg); }
+}
+
+.cube-3d .face
+{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: -200px;
+    left: -200px;
+    opacity: 0.5;
+    transition: transform 0.5s ease-in-out;
+}
+
+.cube-3d .face.face-1 { background: #ff0000; transform: rotateY(0) translateZ(200px); }
+.cube-3d .face.face-2 { background: #ff00ff; transform: rotateY(90deg) translateZ(200px); }
+.cube-3d .face.face-3 { background: #ffff00; transform: rotateY(180deg) translateZ(200px); }
+.cube-3d .face.face-4 { background: #00ffff; transform: rotateY(270deg) translateZ(200px); }
+.cube-3d .face.face-5 { background: #0000ff; transform: rotateX(90deg) translateZ(200px); }
+.cube-3d .face.face-6 { background: #00ff00; transform: rotateX(-90deg) translateZ(200px); }
+
+
+.cube-3d:hover .face.face-1 { background: #ff0000; transform: rotateY(0) translateZ(300px); }
+.cube-3d:hover .face.face-2 { background: #ff00ff; transform: rotateY(90deg) translateZ(300px); }
+.cube-3d:hover .face.face-3 { background: #ffff00; transform: rotateY(180deg) translateZ(300px); }
+.cube-3d:hover .face.face-4 { background: #00ffff; transform: rotateY(270deg) translateZ(300px); }
+.cube-3d:hover .face.face-5 { background: #0000ff; transform: rotateX(90deg) translateZ(300px); }
+.cube-3d:hover .face.face-6 { background: #00ff00; transform: rotateX(-90deg) translateZ(300px); }

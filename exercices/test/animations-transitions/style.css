@@ -1,0 +1,213 @@
+/**
+ * Demo
+ */
+.container
+{
+    display: flex;
+    height: 200px;
+    background: #ddd;
+    margin: 20px;
+    padding: 20px;
+    perspective: 800px;
+    justify-content: center;
+    align-items: center;
+}
+
+.element
+{
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background: orange;
+}
+
+.element.transition
+{
+    position: relative;
+    transform: translateX(0);
+    transition-property: transform;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    will-change: transform;
+}
+
+.container:hover .element.transition
+{
+    transform: translateX(200px);
+}
+
+.animation
+{
+    animation-name: my-super-animation;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    animation-play-state: paused;
+    animation-fill-mode: both;
+}
+
+@keyframes my-super-animation
+{
+    0% { left: 0px; width: 100px; }
+    50% { left: 500px; width: 50px; background: green; }
+    70% { left: 200px; width: 300px; background: red; }
+    100% { left: 400px; width: 50px; }
+}
+
+.container:hover .animation
+{
+    animation-play-state: running;
+}
+
+/**
+ * Equalizer
+ */
+.equalizer
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.equalizer .bar
+{
+    position: absolute;
+    margin-top: -40px;
+    margin-left: -10px;
+    width: 20px;
+    height: 80px;
+    background: #555555;
+    animation-name: equalizer-bar;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes equalizer-bar
+{
+    0% { transform: scaleY(0) }
+    8% { transform: scaleY(1) }
+    100% { transform: scaleY(0.25); }
+}
+
+.equalizer .bar-1
+{
+    left: -50px;
+    animation-duration: 1s;
+}
+
+.equalizer .bar-2
+{
+    left: -25px;
+    animation-duration: 1.2s;
+}
+
+.equalizer .bar-3
+{
+    left: 0px;
+    animation-duration: 1.8s;
+}
+
+.equalizer .bar-4
+{
+    left: 25px;
+    animation-duration: 1.4s;
+}
+
+.equalizer .bar-5
+{
+    left: 50px;
+    animation-duration: 0.8s;
+}
+
+/**
+ * Menu
+ */
+.menu
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    z-index: 1;
+}
+
+.menu .inner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    background: #555555;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 40px;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease-in-out;
+    will-change: transform;
+}
+
+.menu.active .inner
+{
+    transform: translateX(0%);
+}
+
+/**
+ * Radial menu
+ */
+.radial-menu
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.radial-menu .item
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+}
+
+
+.radial-menu .item .inner
+{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 20px;
+    transform: translateX(0px);
+    transition: transform 0.2s ease-out;
+}
+
+.radial-menu .item:not(.item-main) .inner
+{
+    background: #eeeeee;
+}
+
+.radial-menu .item-1 { transform: rotate(0deg); }
+.radial-menu .item-2 { transform: rotate(60deg); }
+.radial-menu .item-3 { transform: rotate(120deg); }
+.radial-menu .item-4 { transform: rotate(180deg); }
+.radial-menu .item-5 { transform: rotate(240deg); }
+.radial-menu .item-6 { transform: rotate(300deg); }
+
+.radial-menu .item-1 .inner { transition-delay: 0.00s; }
+.radial-menu .item-2 .inner { transition-delay: 0.05s; }
+.radial-menu .item-3 .inner { transition-delay: 0.10s; }
+.radial-menu .item-4 .inner { transition-delay: 0.15s; }
+.radial-menu .item-5 .inner { transition-delay: 0.20s; }
+.radial-menu .item-6 .inner { transition-delay: 0.25s; }
+
+.radial-menu:hover .item:not(.item-main) .inner { transform: translateX(50px); }
+
+
