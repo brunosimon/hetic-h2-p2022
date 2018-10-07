@@ -1,0 +1,81 @@
+.container
+{
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    background: #cccccc;
+    perspective: 800px;
+}
+
+.element
+{
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background: orange;
+}
+
+.element-1
+{
+    transform: scaleX(3);
+}
+
+.element-2
+{
+    transform: translateY(50px);
+}
+
+.element-3
+{
+    transform: rotate(45deg);
+}
+
+.element-4
+{
+    transform: skewX(-45deg);
+}
+
+.element-5
+{
+    transform: rotate(70deg);
+    transform-origin: 100% 100%;
+}
+
+.element-6
+{
+    transform: translateX(200px) rotate(45deg) translateX(-200px);
+}
+
+.element-7
+{
+    transform: rotateX(70deg);
+}
+
+.element-8
+{
+    transform: translateZ(200px);
+}
+
+.element-9
+{
+    transform: rotateY(100deg);
+    backface-visibility: hidden;
+}
+
+.element-10
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateX(70deg);
+    transform-style: preserve-3d;
+}
+
+.element-10 .inner
+{
+    width: 50px;
+    height: 50px;
+    background: #ff0000;
+    transform: translateZ(100px);
+}

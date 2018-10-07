@@ -52,10 +52,10 @@
 
 @keyframes my-super-animation
 {
-    0% { left: 0px; width: 100px; }
-    50% { left: 500px; width: 50px; background: green; }
-    70% { left: 200px; width: 300px; background: red; }
-    100% { left: 400px; width: 50px; }
+    0% { transform: scaleX(0.5) translateX(0px); }
+    50% { transform: scaleX(0.25) translateX(500px); }
+    70% { transform: scaleX(1.5) translateX(200px); }
+    100% { transform: scaleX(0.25) translateX(400px); }
 }
 
 .container:hover .animation

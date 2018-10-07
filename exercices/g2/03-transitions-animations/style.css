@@ -1,0 +1,61 @@
+.container
+{
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    background: #cccccc;
+}
+
+.element
+{
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background: orange;
+}
+
+.transition
+{
+    position: relative;
+    left: 0px;
+    /* transition-property: left;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.66, 0.33, 0.23, 1.55);
+    transition-delay: 1s; */
+
+    transition: left 1s ease-in-out 1s;
+}
+
+.container:hover .transition
+{
+    left: 200px;
+}
+
+.animation
+{
+    position: relative;
+    animation-name: coucou-toto;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+    /* animation-fill-mode: backwards; */
+
+    /* animation: coucou-toto 2s; */
+}
+
+.container:hover .animation
+{
+    animation-play-state: running;
+}
+
+@keyframes coucou-toto
+{
+    0%   { left: 0px;   }
+    50%  { left: 400px; }
+    70%  { left: 500px; }
+    100% { left: 200px; }
+}
