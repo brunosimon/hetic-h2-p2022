@@ -1,6 +1,6 @@
 # HETIC
 
-GitHub des cours de développement web en deuxième année pour la promotion P2021
+GitHub des cours de développement web en deuxième année pour la promotion P2022
 
 # PROGRAMME
 
