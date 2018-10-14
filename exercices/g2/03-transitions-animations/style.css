@@ -1,5 +1,8 @@
 .container
 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 200px;
     margin: 20px;
     padding: 20px;
@@ -18,18 +21,17 @@
 .transition
 {
     position: relative;
-    left: 0px;
-    /* transition-property: left;
+    transform: translateX(0px);
+    transition-property: transform;
     transition-duration: 1s;
     transition-timing-function: cubic-bezier(0.66, 0.33, 0.23, 1.55);
-    transition-delay: 1s; */
-
-    transition: left 1s ease-in-out 1s;
+    transition-delay: 0s;
+    will-change: transform;
 }
 
 .container:hover .transition
 {
-    left: 200px;
+    transform: translateX(200px);
 }
 
 .animation
@@ -58,4 +60,132 @@
     50%  { left: 400px; }
     70%  { left: 500px; }
     100% { left: 200px; }
+}
+
+/**
+ * Equalizer
+ */
+.equalizer
+{
+    position: relative;
+}
+
+.equalizer .bar
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: -10px;
+    margin-top: -40px;
+    width: 20px;
+    height: 80px;
+    background: #555555;
+    animation-name: equalizer-bar-bounce;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+    transform-origin: 50% 100%;
+}
+
+.equalizer .bar-1 { animation-delay: 0.4s; left: -50px; }
+.equalizer .bar-2 { animation-delay: 0.8s; left: -25px; }
+.equalizer .bar-3 { animation-delay: 0.5s; left: 0px; }
+.equalizer .bar-4 { animation-delay: 0.1s; left: 25px; }
+.equalizer .bar-5 { animation-delay: 0.7s; left: 50px; }
+
+@keyframes equalizer-bar-bounce
+{
+    0%   { transform: scaleY(0.2); }
+    10%  { transform: scaleY(1); }
+    100% { transform: scaleY(0.2); }
+}
+
+/**
+ * Menu
+ */
+.menu
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+}
+
+.menu .inner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    padding: 20px 40px;
+    background: #555555;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    transform: translateX(-100%);
+    transition-property: transform;
+    transition-duration: 1s;
+    will-change: transform;
+}
+
+.menu.open .inner
+{
+    transform: translateX(0%);
+}
+
+/**
+ * Radial menu
+ */
+.radial-menu
+{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.radial-menu .item
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.radial-menu .item .inner
+{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+.radial-menu .item-1 { transform: rotate(calc(360deg / 6 * 1)); }
+.radial-menu .item-2 { transform: rotate(calc(360deg / 6 * 2)); }
+.radial-menu .item-3 { transform: rotate(calc(360deg / 6 * 3)); }
+.radial-menu .item-4 { transform: rotate(calc(360deg / 6 * 4)); }
+.radial-menu .item-5 { transform: rotate(calc(360deg / 6 * 5)); }
+.radial-menu .item-6 { transform: rotate(calc(360deg / 6 * 6)); }
+
+.radial-menu:hover .item-1 .inner { transition-delay: 0.0s; }
+.radial-menu:hover .item-2 .inner { transition-delay: 0.05s; }
+.radial-menu:hover .item-3 .inner { transition-delay: 0.1s; }
+.radial-menu:hover .item-4 .inner { transition-delay: 0.15s; }
+.radial-menu:hover .item-5 .inner { transition-delay: 0.2s; }
+.radial-menu:hover .item-6 .inner { transition-delay: 0.25s; }
+
+.radial-menu .item:not(.item-main) .inner
+{
+    background: #eeeeee;
+    transition-property: transform;
+    transition-duration: 0.6s;
+    will-change: transform;
+}
+
+.radial-menu:hover .item:not(.item-main) .inner
+{
+    transform: translateX(50px);
 }
