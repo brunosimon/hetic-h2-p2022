@@ -9,16 +9,51 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
 - [ ] CSS3 Transformations
 - [ ] CSS3 Animations/Transitions
 - [ ] JS
-    - [ ] Menu toggle
-    - [ ] Clock
-    - [ ] Targets shooter
-    - [ ] Image lazy loading
-    - [ ] Drumkit
-    - [ ] Parallax
-    - [ ] Popin
-    - [ ] Carousel
-    - [ ] Async navigation
-    - [ ] Search instagram with speech API
+    - [ ] Exercices
+        - [x] Menu toggle
+        - [ ] Clock
+        - [ ] 2D shooter
+        - [ ] Image lazy loading
+        - [ ] Drumkit
+        - [ ] Scroll parallax
+        - [ ] Mouse parallax
+        - [ ] Popin
+        - [ ] Carousel
+        - [ ] Async navigation
+        - [ ] Search instagram with speech API
+    - [ ] Techniques
+        - [ ] script tag
+        - [ ] Console
+        - [ ] Variables / Nomenclature / Const / Let
+        - [ ] Concatenation / Back quotes
+        - [ ] Boucles
+            - [ ] While
+            - [ ] For
+            - [ ] For ... in
+            - [ ] For ... of
+        - [ ] Function
+            - [ ] Fat arrow
+            - [ ] Return
+        - [ ] AddEventListeners / Event / Callbacks
+            - [ ] Click / Mousemove / Mousedown / Mouseup / Mouseenter / Mouseleave
+            - [ ] Keydown / Keyup
+            - [ ] Scroll
+            - [ ] Resize
+        - [ ] setInterval / setTimeout
+        - [ ] Math
+        - [ ] Scope / Function scope / Block scope
+        - [ ] If / Else / || / &&
+        - [ ] DOM manipulation
+            - [ ] querySelector / querySelectorAll
+            - [ ] appendChild
+            - [ ] removeChild
+            - [ ] remove
+            - [ ] setAttribute
+            - [ ] style
+            - [ ] classList
+            - [ ] innerText
+            - [ ] innerHTML
+        - [ ] JS Object
 - [ ] HTML5 Audio/video API
 - [ ] Versionning avec git
 - [ ] Responsive
