@@ -1,13 +1,13 @@
 # HETIC
 
-GitHub des cours de développement web en deuxième année pour la promotion P2022
+GitHub des cours de développement web en deuxième année pour la promotion P2021
 
 # PROGRAMME
 
 ### Trimestre 1
 
-- [ ] CSS3 Transformations
-- [ ] CSS3 Animations/Transitions
+- [x] CSS3 Transformations
+- [x] CSS3 Animations/Transitions
 - [ ] JS
     - [ ] Exercices
         - [x] Menu toggle
@@ -22,17 +22,17 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
         - [ ] Async navigation
         - [ ] Search instagram with speech API
     - [ ] Techniques
-        - [ ] script tag
-        - [ ] Console
-        - [ ] Variables / Nomenclature / Const / Let
+        - [x] script tag
+        - [x] Console
+        - [x] Variables / Nomenclature / Const / Let
         - [ ] Concatenation / Back quotes
         - [ ] Boucles
             - [ ] While
             - [ ] For
             - [ ] For ... in
             - [ ] For ... of
-        - [ ] Function
-            - [ ] Fat arrow
+        - [x] Function
+            - [x] Fat arrow
             - [ ] Return
         - [ ] AddEventListeners / Event / Callbacks
             - [ ] Click / Mousemove / Mousedown / Mouseup / Mouseenter / Mouseleave
@@ -44,13 +44,13 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
         - [ ] Scope / Function scope / Block scope
         - [ ] If / Else / || / &&
         - [ ] DOM manipulation
-            - [ ] querySelector / querySelectorAll
+            - [x] querySelector / querySelectorAll
             - [ ] appendChild
             - [ ] removeChild
             - [ ] remove
             - [ ] setAttribute
             - [ ] style
-            - [ ] classList
+            - [x] classList
             - [ ] innerText
             - [ ] innerHTML
         - [ ] JS Object
