@@ -11,12 +11,12 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
 - [ ] JS
     - [ ] Exercices
         - [x] Menu toggle
-        - [ ] Clock
+        - [x] Clock
         - [ ] 2D shooter
-        - [ ] Image lazy loading
+        - [x] Image lazy loading
         - [ ] Drumkit
-        - [ ] Scroll parallax
-        - [ ] Mouse parallax
+        - [x] Scroll parallax
+        - [x] Mouse parallax
         - [ ] Popin
         - [ ] Carousel
         - [ ] Async navigation
@@ -25,21 +25,21 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
         - [x] script tag
         - [x] Console
         - [x] Variables / Nomenclature / Const / Let
-        - [ ] Concatenation / Back quotes
+        - [x] Concatenation / Back quotes
         - [ ] Boucles
             - [ ] While
             - [ ] For
             - [ ] For ... in
-            - [ ] For ... of
+            - [x] For ... of
         - [x] Function
             - [x] Fat arrow
-            - [ ] Return
+            - [x] Return
         - [ ] AddEventListeners / Event / Callbacks
             - [ ] Click / Mousemove / Mousedown / Mouseup / Mouseenter / Mouseleave
             - [ ] Keydown / Keyup
-            - [ ] Scroll
-            - [ ] Resize
-        - [ ] setInterval / setTimeout
+            - [x] Scroll
+            - [x] Resize
+        - [x] setInterval / setTimeout
         - [ ] Math
         - [ ] Scope / Function scope / Block scope
         - [ ] If / Else / || / &&
@@ -48,13 +48,15 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
             - [ ] appendChild
             - [ ] removeChild
             - [ ] remove
-            - [ ] setAttribute
-            - [ ] style
+            - [x] setAttribute
+            - [x] style
             - [x] classList
             - [ ] innerText
             - [ ] innerHTML
-        - [ ] JS Object
-- [ ] HTML5 Audio/video API
+        - [ ] Fetch
+        - [ ] JSON
+        - [ ] Object
+- [x] HTML5 Audio/video API
 - [ ] Versionning avec git
 - [ ] Responsive
 - [ ] Canvas

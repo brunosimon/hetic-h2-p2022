@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drumkit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="drumkit">
+
+        <!-- Buttons -->
+        <div data-sound="clap" class="button key-65">
+            <div class="title">clap</div>
+        </div>
+        <div data-sound="hi-hat" class="button key-90">
+            <div class="title">hi-hat</div>
+        </div>
+        <div data-sound="kick" class="button key-69">
+            <div class="title">kick</div>
+        </div>
+        <div data-sound="open-hat" class="button key-82">
+            <div class="title">open-hat</div>
+        </div>
+        <div data-sound="snare" class="button key-84">
+            <div class="title">snare</div>
+        </div>
+        <div data-sound="vox" class="button key-89">
+            <div class="title">vox</div>
+        </div>
+
+        <!-- Sounds -->
+        <audio class="sound clap" src="drumkit-sounds/clap.mp3"></audio>
+        <audio class="sound hi-hat" src="drumkit-sounds/hi-hat.mp3"></audio>
+        <audio class="sound kick" src="drumkit-sounds/kick.mp3"></audio>
+        <audio class="sound open-hat" src="drumkit-sounds/open-hat.mp3"></audio>
+        <audio class="sound snare" src="drumkit-sounds/snare.mp3"></audio>
+        <audio class="sound vox" src="drumkit-sounds/vox.mp3"></audio>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

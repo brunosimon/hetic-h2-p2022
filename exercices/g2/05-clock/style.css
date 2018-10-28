@@ -1,0 +1,52 @@
+body
+{
+    background: #dddddd;
+}
+
+.clock
+{
+    position: absolute;
+    top: calc(50% - 200px);
+    left: calc(50% - 200px);
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: linear-gradient(to top, #dddddd, #ffffff);
+}
+
+.clock .needle
+{
+    position: absolute;
+    transition: transform 1s linear;
+    will-change: transform;
+}
+
+.clock .needle.hours
+{
+    top: calc(50% - 96px);
+    left: calc(50% - 4px);
+    width: 8px;
+    height: 100px;
+    background: #a07f7f;
+    transform-origin: 50% 96px;
+}
+
+.clock .needle.minutes
+{
+    top: calc(50% - 148px);
+    left: calc(50% - 2px);
+    width: 4px;
+    height: 150px;
+    background: #a07f7f;
+    transform-origin: 50% 148px;
+}
+
+.clock .needle.seconds
+{
+    top: calc(50% - 149px);
+    left: calc(50% - 1px);
+    width: 2px;
+    height: 150px;
+    background: #c50e0e;
+    transform-origin: 50% 149px;
+}

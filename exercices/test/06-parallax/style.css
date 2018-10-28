@@ -1,0 +1,52 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.lazy-load
+{
+    opacity: 0;
+    transition: opacity 1s;
+    will-change: opacity;
+}
+
+.lazy-load.loaded
+{
+    opacity: 1;
+}
+
+.hero
+{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: orange;
+    overflow: hidden;
+}
+
+.hero .image
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero .image .inner
+{
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.content
+{
+    height: 200vh;
+    background: #210002;
+}

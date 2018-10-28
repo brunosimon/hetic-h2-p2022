@@ -1,0 +1,62 @@
+.lazy
+{
+    opacity: 0;
+    transition: opacity 1s;
+    will-change: opacity;
+}
+
+.lazy.loaded
+{
+    opacity: 1;
+}
+
+.scroll-parallax
+{
+    will-change: transform;
+}
+
+.hero
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: orange;
+    overflow: hidden;
+}
+
+.hero .image
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.hero .image .inner
+{
+    position: absolute;
+    top: -12%;
+    right: -12%;
+    bottom: -12%;
+    left: -12%;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* .hero .image-0 { background-image: url('https://bruno-simon.com/hetic/p2022/resources/parallax/images/0.png'); }
+.hero .image-1 { background-image: url('https://bruno-simon.com/hetic/p2022/resources/parallax/images/1.png'); }
+.hero .image-2 { background-image: url('https://bruno-simon.com/hetic/p2022/resources/parallax/images/2.png'); }
+.hero .image-3 { background-image: url('https://bruno-simon.com/hetic/p2022/resources/parallax/images/3.png'); }
+.hero .image-4 { background-image: url('https://bruno-simon.com/hetic/p2022/resources/parallax/images/4.png'); }
+.hero .image-5 { background-image: url('https://bruno-simon.com/hetic/p2022/resources/parallax/images/5.png'); }
+.hero .image-6 { background-image: url('https://bruno-simon.com/hetic/p2022/resources/parallax/images/6.png'); }
+.hero .image-7 { background-image: url('https://bruno-simon.com/hetic/p2022/resources/parallax/images/7.png'); }
+.hero .image-8 { background-image: url('https://bruno-simon.com/hetic/p2022/resources/parallax/images/8.png'); } */
+
+.content
+{
+    width: 100%;
+    height: 200vh;
+    background: #210002;
+}
