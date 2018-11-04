@@ -14,13 +14,12 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
         - [x] Clock
         - [ ] 2D shooter
         - [x] Image lazy loading
-        - [ ] Drumkit
+        - [x] Drumkit
         - [x] Scroll parallax
         - [x] Mouse parallax
         - [ ] Popin
         - [ ] Carousel
         - [ ] Async navigation
-        - [ ] Search instagram with speech API
     - [ ] Techniques
         - [x] script tag
         - [x] Console
@@ -34,18 +33,18 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
         - [x] Function
             - [x] Fat arrow
             - [x] Return
-        - [ ] AddEventListeners / Event / Callbacks
-            - [ ] Click / Mousemove / Mousedown / Mouseup / Mouseenter / Mouseleave
-            - [ ] Keydown / Keyup
+        - [x] AddEventListeners / Event / Callbacks
+            - [x] Click / Mousemove / Mousedown / Mouseup / Mouseenter / Mouseleave
+            - [x] Keydown / Keyup
             - [x] Scroll
             - [x] Resize
         - [x] setInterval / setTimeout
         - [ ] Math
         - [ ] Scope / Function scope / Block scope
-        - [ ] If / Else / || / &&
+        - [x] If / Else / || / &&
         - [ ] DOM manipulation
             - [x] querySelector / querySelectorAll
-            - [ ] appendChild
+            - [x] appendChild
             - [ ] removeChild
             - [ ] remove
             - [x] setAttribute
@@ -53,9 +52,10 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
             - [x] classList
             - [ ] innerText
             - [ ] innerHTML
-        - [ ] Fetch
-        - [ ] JSON
-        - [ ] Object
+        - [x] Fetch
+        - [x] JSON
+        - [x] Object
+        - [ ] Class / Constructor
 - [x] HTML5 Audio/video API
 - [ ] Versionning avec git
 - [ ] Responsive

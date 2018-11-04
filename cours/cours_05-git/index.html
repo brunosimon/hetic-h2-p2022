@@ -431,8 +431,12 @@ say -v Thomas "Coucou la famille"
                 </section>
 
                 <section>
+                    <p><span class="hl">git clone</span> permet de récupérer un repo en local</p>
+                    <p>Actuellement le dossier est vide, mais si d'autres développeurs ou nous-même avions commencé à travailler dessus, on aurait récupérer les fichiers</p>
+                </section>
+
+                <section>
                     <p>Le dossier nouvellement créé contient un dossier <span class="u">.git</span> (invisible sur mac)</p>
-                    <p>Sur mac, dans le terminal, tapez <span class="hl">defaults write com.apple.finder AppleShowAllFiles TRUE;killall Finder</span> pour faire apparaître les fichiers/dossiers cachés</p>
                     <p>Ce dossier contient la configuration ainsi que l'historique de votre projet (actuellement pas grand chose)</p>
                     <p><span class="u">Ne touchez jamais au contenu de ce dossier</span></p>
                 </section>
@@ -579,16 +583,24 @@ say -v Thomas "Coucou la famille"
                 <section>
                     <h3>Les fichiers modifiés ne sont pas les mêmes</h3>
                     <p>Si d'autres fichiers ont été modifié entre-temps et qu'il n'y a pas de conflit, l'éditeur <span class="hl">vi</span> va apparaître avec un contenu pré rempli</p>
+                </section>
+
+                <section>
                     <img class="no-style" width="800" src="src/img/terminal-vi-commit-1.png" alt="">
                     <p>La première ligne correspond à la description du commit</p>
                 </section>
 
                 <section>
-                    <p>Tapez simplement <span class="hl">:wq</span> et faites <span class="hl">ENTRER</span></p>
+                    <p>Si vous souhaitez modifier la description, appuyez sur la touche <span class="hl">i</span> (insert)</p>
+                    <p>Pour quitter le mode insert, appuyer sur <span class="hl">CTRL + C</span></p>
+                </section>
+
+                <section>
+                    <p>Pour sauvegarder tapez <span class="hl">:wq</span> et faites <span class="hl">ENTRER</span></p>
                     <ul>
                         <li><span class="hl">:</span> permet d'écrire une commande VI</li>
-                        <li><span class="hl">w</span> indique de sauvegarder</li>
-                        <li><span class="hl">q</span> indique de quitter</li>
+                        <li><span class="hl">w</span> indique de sauvegarder (write)</li>
+                        <li><span class="hl">q</span> indique de quitter (quit)</li>
                     </ul>
                     <p>
                         <img class="no-style" width="800" src="src/img/terminal-vi-commit-2.png" alt="">
@@ -637,7 +649,7 @@ say -v Thomas "Coucou la famille"
                 </section>
 
                 <section>
-                    <p>La résolution de conflits et la partie la plus difficile à maîtriser</p>
+                    <p>La résolution de conflits est la partie la plus difficile à maîtriser</p>
                     <p>Il faut faire preuve de rigueur et d'organisation dans la team</p>
                 </section>
 
@@ -1023,7 +1035,7 @@ say -v Thomas "Coucou la famille"
                 </section>
 
                 <section>
-                    <p>Git est indispensable pour la pérennité de vos projets</p>
+                    <p>Git est indispensable pour la pérennité de vos projets que ce soit pour des projets perso ou en équipe</p>
                     <p>Faites-en bon usage</p>
                 </section>
 

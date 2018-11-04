@@ -1,0 +1,130 @@
+.shooter
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #444444, #000000);
+    font-family: Helvetica, Arial;
+}
+
+.shooter.started .start
+{
+    display: none;
+}
+
+.shooter.started .score,
+.shooter.started .time,
+.shooter.started .targets
+{
+    display: block;
+}
+
+.shooter.ended .start,
+.shooter.ended .score
+{
+    display: block;
+}
+
+.shooter.ended .score
+{
+    position: absolute;
+    top: 25%;
+}
+
+.start
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0.15;
+    color: #ffffff;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 60px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.score
+{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0.15;
+    color: #ffffff;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.score .value
+{
+    font-size: 120px;
+}
+
+.score .unit
+{
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.time
+{
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    opacity: 0.15;
+    color: #ffffff;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 30px;
+}
+
+.targets
+{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.target
+{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 12vmin;
+    height: 12vmin;
+    transform: translateX(-50%) translateY(-50%);
+    background: #eeeeee;
+    border-radius: 50%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.target::before
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% / 3 * 2);
+    height: calc(100% / 3 * 2);
+    transform: translateX(-50%) translateY(-50%);
+    background: #bb0000;
+    border-radius: 50%;
+}
+
+.target::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% / 3);
+    height: calc(100% / 3);
+    transform: translateX(-50%) translateY(-50%);
+    background: #ffffff;
+    border-radius: 50%;
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "title": "clap",
+        "src": "drumkit-sounds/clap.mp3",
+        "keyMap": [ 65 ]
+    },
+    {
+        "title": "hi-hat",
+        "src": "drumkit-sounds/hi-hat.mp3",
+        "keyMap": [ 90 ]
+    },
+    {
+        "title": "kick",
+        "src": "drumkit-sounds/kick.mp3",
+        "keyMap": [ 69 ]
+    },
+    {
+        "title": "open-hat",
+        "src": "drumkit-sounds/open-hat.mp3",
+        "keyMap": [ 82 ]
+    },
+    {
+        "title": "snare",
+        "src": "drumkit-sounds/snare.mp3",
+        "keyMap": [ 84 ]
+    },
+    {
+        "title": "vox",
+        "src": "drumkit-sounds/vox.mp3",
+        "keyMap": [ 89 ]
+    }
+]
