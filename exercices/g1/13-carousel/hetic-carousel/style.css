@@ -1,0 +1,147 @@
+.hetic-carousel
+{
+    position: relative;
+}
+
+/**
+ * Slides
+ */
+.hetic-carousel .slides,
+.hetic-carousel .slide,
+.hetic-carousel .content
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hetic-carousel .slide,
+.hetic-carousel .content
+{
+    transition: transform 0.6s cubic-bezier(0.75, 0, 0.25, 1);
+    will-change: transform;
+}
+
+.hetic-carousel .slide.is-before
+{
+    transform: translateX(-100%);
+}
+
+.hetic-carousel .slide.is-before .content
+{
+    transform: translateX(50%);
+}
+
+.hetic-carousel .slide.is-after
+{
+    transform: translateX(100%);
+}
+
+.hetic-carousel .slide.is-after .content
+{
+    transform: translateX(-50%);
+}
+
+/**
+ * Siblings
+ */
+.hetic-carousel .sibling
+{
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background: #00000022;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+    will-change: opacity;
+}
+
+.hetic-carousel:hover .sibling
+{
+    opacity: 1;
+}
+
+.hetic-carousel .sibling.previous
+{
+    left: 0;
+}
+
+.hetic-carousel .sibling.next
+{
+    right: 0;
+}
+
+.hetic-carousel .sibling::after
+{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+}
+
+.hetic-carousel .sibling.previous::after
+{
+    transform: translateX(6px) rotate(-135deg);
+}
+
+.hetic-carousel .sibling.next::after
+{
+    transform: translateX(-6px) rotate(45deg);
+}
+
+/**
+ * Pagination
+ */
+.hetic-carousel .pagination
+{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    justify-content: center;
+    align-items: flex-end;
+    background: linear-gradient(to top, #00000088, #00000000);
+}
+
+.hetic-carousel .pagination .page
+{
+    display: flex;
+    width: 24px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+}
+
+.hetic-carousel .pagination .page::after
+{
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border: 2px solid #ffffff;
+}
+
+.hetic-carousel .pagination .page.is-active::after,
+.hetic-carousel .pagination .page:hover::after
+{
+    background: #ffffff;
+}

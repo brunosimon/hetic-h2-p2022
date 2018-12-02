@@ -1,0 +1,164 @@
+.hetic-carousel
+{
+    position: relative;
+}
+
+/**
+ * Slides
+ */
+.hetic-carousel .slides,
+.hetic-carousel .slide,
+.hetic-carousel .content
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hetic-carousel .slide
+{
+    background: #222222;
+}
+
+.hetic-carousel .slide .content
+{
+    opacity: 0;
+}
+
+.hetic-carousel .slide.is-loaded .content
+{
+    opacity: 1;
+}
+
+.hetic-carousel .slide,
+.hetic-carousel .slide .content
+{
+    transition: transform 0.6s cubic-bezier(0.75, 0, 0.25, 1), opacity 0.3s;
+    will-change: transform, opacity;
+}
+
+.hetic-carousel .slide.is-before
+{
+    transform: translateX(-100%);
+}
+
+.hetic-carousel .slide.is-before .content
+{
+    transform: translateX(50%);
+}
+
+.hetic-carousel .slide.is-after
+{
+    transform: translateX(100%);
+}
+
+.hetic-carousel .slide.is-after .content
+{
+    transform: translateX(-50%);
+}
+
+/**
+ * Siblings
+ */
+.hetic-carousel .sibling
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    background: #00000022;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+    will-change: opacity;
+}
+
+.hetic-carousel .sibling::after
+{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+}
+
+.hetic-carousel .sibling.previous
+{
+    left: 0;
+}
+
+.hetic-carousel .sibling.previous::after
+{
+    transform: translateX(25%) rotate(-135deg);
+}
+
+.hetic-carousel .sibling.next
+{
+    right: 0;
+}
+
+.hetic-carousel .sibling.next::after
+{
+    transform: translateX(-25%) rotate(45deg);
+}
+
+.hetic-carousel:hover .sibling
+{
+    opacity: 1;
+}
+
+/**
+ * Pagination
+ */
+.hetic-carousel .pagination
+{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to top, #00000044, #00000000);
+}
+
+.hetic-carousel .pagination .item
+{
+    display: flex;
+    width: 24px;
+    height: 100%;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.15s opacity;
+    will-change: opacity;
+}
+
+.hetic-carousel .pagination .item::after
+{
+    content: '';
+    width: 6px;
+    height: 6px;
+    border: 2px solid #ffffff;
+}
+
+.hetic-carousel .pagination .item.is-active,
+.hetic-carousel .pagination .item:hover
+{
+    opacity: 1;
+}
