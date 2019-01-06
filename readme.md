@@ -12,13 +12,13 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
     - [ ] Exercices
         - [x] Menu toggle
         - [x] Clock
-        - [ ] 2D shooter
+        - [x] 2D shooter
         - [x] Image lazy loading
         - [x] Drumkit
         - [x] Scroll parallax
         - [x] Mouse parallax
-        - [ ] Popin
-        - [ ] Carousel
+        - [x] Carousel
+        - [ ] Gallerie
         - [ ] Async navigation
     - [ ] Techniques
         - [x] script tag
@@ -27,8 +27,8 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
         - [x] Concatenation / Back quotes
         - [ ] Boucles
             - [ ] While
-            - [ ] For
-            - [ ] For ... in
+            - [x] For
+            - [x] For ... in
             - [x] For ... of
         - [x] Function
             - [x] Fat arrow
@@ -39,7 +39,7 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
             - [x] Scroll
             - [x] Resize
         - [x] setInterval / setTimeout
-        - [ ] Math
+        - [x] Math
         - [ ] Scope / Function scope / Block scope
         - [x] If / Else / || / &&
         - [ ] DOM manipulation
@@ -50,16 +50,17 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
             - [x] setAttribute
             - [x] style
             - [x] classList
-            - [ ] innerText
-            - [ ] innerHTML
+            - [x] textContent
+            - [x] innerText
+            - [x] innerHTML
         - [x] Fetch
         - [x] JSON
         - [x] Object
-        - [ ] Class / Constructor
+        - [x] Class / Constructor
 - [x] HTML5 Audio/video API
-- [ ] Versionning avec git
+- [x] Versionning avec git
+- [x] Canvas
 - [ ] Responsive
-- [ ] Canvas
 - [ ] Fonts
 - [ ] Task runners
 - [ ] Preprocessing
