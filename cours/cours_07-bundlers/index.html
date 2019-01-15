@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>TRIM 1 - Cours 07 - Bundlers</title>
+        <title>TRIM 2 - Cours 07 - Bundlers</title>
         <meta name="description" content="">
         <meta name="author" content="Bruno Simon">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -38,12 +38,111 @@
                     <h1>Bundlers</h1>
                 </section>
 
-                <!-- Description -->
+                <!-- Index -->
                 <section>
-                    <p>Aussi appelés <span class="u">Task Runners</span></p>
+                    <ul>
+                        <li>
+                            <a href="#description">Description</a>
+                        </li>
+                        <li>
+                            <a href="#quelques-bundlers">Quelques bundlers</a>
+                        </li>
+                        <li>
+                            <a href="#node-js">Node.js</a>
+                        </li>
+                        <li>
+                            <a href="#npm">NPM</a>
+                        </li>
+                        <li>
+                            <a href="#package-json">Package.json</a>
+                        </li>
+                        <li>
+                            <a href="#webpack">Webpack</a>
+                            <ul>
+                                <li>
+                                    <a href="#configuration">Configuration</a>
+                                </li>
+                                <li>
+                                    <a href="#modules">Modules</a>
+                                </li>
+                                <li>
+                                    <a href="#rules-loaders">Rules / Loaders</a>
+                                </li>
+                                <li>
+                                    <a href="#css">CSS</a>
+                                </li>
+                                <li>
+                                    <a href="#images">Images</a>
+                                </li>
+                                <li>
+                                    <a href="#fonts">Fonts</a>
+                                </li>
+                                <li>
+                                    <a href="#html">HTML</a>
+                                </li>
+                                <li>
+                                    ...
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </section>
 
                 <section>
+                    <ul>
+                        <li>
+                            <a href="#webpack">Webpack</a>
+                            <ul>
+                                <li>
+                                    ...
+                                </li>
+                                <li>
+                                    <a href="#transpiling">Transpiling</a>
+                                </li>
+                                <li>
+                                    <a href="#cache-breaker">Cache breaker</a>
+                                </li>
+                                <li>
+                                    <a href="#clear-dist">Clear dist</a>
+                                </li>
+                                <li>
+                                    <a href="#sourcemaps">Sourcemaps</a>
+                                </li>
+                                <li>
+                                    <a href="#watch">Watch</a>
+                                </li>
+                                <li>
+                                    <a href="#dev-server">Dev server</a>
+                                </li>
+                                <li>
+                                    <a href="#hot-reload">Hot reload</a>
+                                </li>
+                                <li>
+                                    <a href="#environnements">Environnements</a>
+                                </li>
+                                <li>
+                                    <a href="#extract-css">Extract CSS</a>
+                                </li>
+                                <li>
+                                    <a href="#stylus">Stylus</a>
+                                </li>
+                                <li>
+                                    <a href="#static-files">Static files</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#conclusion">Conclusion</a>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Description -->
+                <section id="description">
+                    <p>Aussi appelés <span class="u">Task Runners</span></p>
+                </section>
+
+                <section id="test">
                     <p>Traiter et regrouper automatiquement les différents assets permettant de faire fonctionner une application</p>
                 </section>
 
@@ -56,7 +155,7 @@
                     <ul>
                         <li class="fragment">Minification</li>
                         <li class="fragment">Concatenation</li>
-                        <li class="fragment">Transpilling</li>
+                        <li class="fragment">Transpiling</li>
                         <li class="fragment">Tree shaking</li>
                         <li class="fragment">Chunking</li>
                         <li class="fragment">Linting</li>
@@ -77,7 +176,7 @@
                 <section>
                     <p>Images</p>
                     <ul>
-                        <li class="fragment">Minification</li>
+                        <li class="fragment">Compression</li>
                         <li class="fragment">Resizing</li>
                     </ul>
                 </section>
@@ -111,8 +210,8 @@
                     </ul>
                 </section>
 
-                <!-- List -->
-                <section>
+                <!-- Quelques bundlers -->
+                <section id="quelques-bundlers">
                     <h3>Quelques bundlers</h3>
                 </section>
 
@@ -189,7 +288,7 @@
                 </section>
 
                 <!-- Node.js -->
-                <section>
+                <section id="node-js">
                     <h3>Node.js</h3>
                 </section>
 
@@ -243,7 +342,7 @@ node -v
                 </section>
 
                 <!-- NPM -->
-                <section>
+                <section id="npm">
                     <h3>NPM</h3>
                 </section>
 
@@ -300,27 +399,15 @@ npm i package1 package2 package3
                     <p>Nous allons donc rajouter <span class="hl">node_modules</span> dans le <span class="hl">.gitignore</span></p>
                     <p>Mais vient un nouveau problème</p>
                     <p>Comment les autres développeurs savent quels modules installer ?</p>
-                    <p class="fragment"><span class="hl">package-lock.json</span></p>
-                </section>
-
-                <section>
-                    <p>Grâce au fichier <span class="hl">package-lock.json</span> les autres développeurs peuvent installer les mêmes packages en une commande</p>
-                    <pre><code data-trim contenteditable class="cpp">
-npm install
-                    </code></pre>
-                    <p>Ou</p>
-                    <pre><code data-trim contenteditable class="cpp">
-npm i
-                    </code></pre>
+                    <p class="fragment"><span class="hl">package.json</span></p>
                 </section>
 
                 <!-- Package.json -->
-                <section>
+                <section id="package.json">
                     <h3>package.json</h3>
                 </section>
 
                 <section>
-                    <p>Le fichier <span class="hl">package-lock.json</span> suffit à conserver les mêmes versions de packages entre les développeurs, mais il est préférable d'utiliser un fichier <span class="hl">package.json</span></p>
                     <p>Fichier JSON en général à la racine contenant des informations sur le projet à destinations diverses (nom, auteur, version, description, mot clés, etc.)</p>
                     <p>Va aussi contenir la liste des dépendances</p>
                 </section>
@@ -331,6 +418,14 @@ npm i
 npm init
                     </code></pre>
                     <p>Mettez n'importe quelles informations</p>
+                </section>
+
+                <section>
+                    <p>Astuce</p>
+                    <p>Pour créer un fichier <span class="hl">package.json</span> en laissant toutes les valeurs par défault</p>
+                    <pre><code data-trim contenteditable class="cpp">
+npm init -y
+                    </code></pre>
                 </section>
 
                 <section>
@@ -381,6 +476,17 @@ npm r -D webpack
                 </section>
 
                 <section>
+                    <p>Grâce au fichier <span class="hl">package.json</span> les autres développeurs peuvent installer les mêmes packages en une commande</p>
+                    <pre><code data-trim contenteditable class="cpp">
+npm install
+                    </code></pre>
+                    <p>Ou</p>
+                    <pre><code data-trim contenteditable class="cpp">
+npm i
+                    </code></pre>
+                </section>
+
+                <section>
                     <p>Certaines dépendances ont besoin d'être installées en <span class="hl">global</span></p>
                     <p>Elles ne sont pas forcément liées au projet et pourront être executées de n'importe où</p>
                     <p>Par exemple Keppler</p>
@@ -394,7 +500,7 @@ npm i -g keppler
                 </section>
 
                 <!-- Webpack -->
-                <section>
+                <section id="webpack">
                     <h3>Webpack</h3>
                 </section>
 
@@ -408,7 +514,7 @@ npm i -D webpack-cli
                 </section>
 
                 <!-- Configuration -->
-                <section>
+                <section id="configuration">
                     <h3>Configuration</h3>
                 </section>
 
@@ -524,7 +630,7 @@ npm run build
                 </section>
 
                 <!-- Modules -->
-                <section>
+                <section id="modules">
                     <h3>Modules</h3>
                 </section>
 
@@ -557,7 +663,7 @@ export default class Toto
                 </section>
 
                 <!-- Rules / Loaders -->
-                <section>
+                <section id="rules-loaders">
                     <h3>Rules / Loaders</h3>
                 </section>
 
@@ -573,7 +679,7 @@ export default class Toto
                 </section>
 
                 <!-- CSS -->
-                <section>
+                <section id="css">
                     <h3>CSS</h3>
                 </section>
 
@@ -634,7 +740,7 @@ import './css/style.css'
                 </section>
 
                 <!-- Images -->
-                <section>
+                <section id="images">
                     <h3>Images</h3>
                 </section>
 
@@ -729,7 +835,7 @@ document.body.appendChild($img)
                 </section>
 
                 <!-- Fonts -->
-                <section>
+                <section id="fonts">
                     <h3>Fonts</h3>
                 </section>
 
@@ -781,7 +887,7 @@ body
                 </section>
 
                 <!-- HTML -->
-                <section>
+                <section id="html">
                     <h3>HTML</h3>
                 </section>
 
@@ -830,7 +936,7 @@ module.exports = {
                 </section>
 
                 <section>
-                    <p>Créez ensuite le fichier <span class="hl">src/index.html</span> et ajoutez-y le même HTML que dans <span class="hl">dist/index.html</span> mais en supprimant la partie <span class="hl">&lt;script&gt;</span></p>
+                    <p>Créez ensuite le fichier <span class="hl">src/index.html</span> et ajoutez-y le même HTML que dans <span class="hl">dist/index.html</span> mais en supprimant le <span class="hl">&lt;script&gt;</span></p>
                     <pre><code data-trim contenteditable class="html">
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
@@ -846,6 +952,7 @@ module.exports = {
 &lt;/body&gt;
 &lt;/html&gt;
                     </code></pre>
+                    <p>Webpack injectera directement le <span class="hl">&lt;script&gt;</span></p>
                 </section>
                 
                 <section>
@@ -854,9 +961,9 @@ module.exports = {
                     <p>Vous pouvez d'ailleurs rajouter le dossier <span class="hl">dist/</span> au <span class="hl">.gitignore</span></p>
                 </section>
 
-                <!-- Transpilling -->
-                <section>
-                    <h3>Transpilling</h3>
+                <!-- Transpiling -->
+                <section id="transpiling">
+                    <h3>Transpiling</h3>
                 </section>
 
                 <section>
@@ -881,7 +988,7 @@ module.exports = {
 
                 <section>
                     <p>Le code généré est sensiblement le même que le code source avec, en plus, le support des modules</p>
-                    <p>Si nous souhaitons que notre code soit compatible avec des navigateurs moins récents, nous allons devoir le <span class="u">transpiler</span></p>
+                    <p>Si nous souhaitons que notre code soit compatible avec des navigateurs moins récents, nous allons devoir utiliser un <span class="u">transpiler</span></p>
                     <p>Pour cela, nous allons utiliser <span class="hl">Babel</span></p>
                 </section>
 
@@ -929,7 +1036,7 @@ npm i -D @babel/core babel-loader @babel/preset-env
                 </section>
 
                 <!-- Cache breaker -->
-                <section>
+                <section id="cache-breaker">
                     <h3>Cache breaker</h3>
                 </section>
 
@@ -966,7 +1073,7 @@ module.exports = {
                 </section>
 
                 <!-- Clear dist -->
-                <section>
+                <section id="clear-dist">
                     <h3>Clear dist</h3>
                 </section>
 
@@ -1008,7 +1115,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
                 </section>
 
                 <!-- Sourcemaps -->
-                <section>
+                <section id="sourcemaps">
                     <h3>Sourcemaps</h3>
                 </section>
 
@@ -1042,7 +1149,7 @@ module.exports = {
                 </section>
 
                 <!-- Watch -->
-                <section>
+                <section id="watch">
                     <h3>Watch</h3>
                 </section>
 
@@ -1077,18 +1184,18 @@ npm run watch
                 <section>
                     <p>La tâche tourne en continue</p>
                     <p>Modifiez un fichier, actualisez et voyez le résultat pris en compte sans avoir à lancer un build</p>
-                    <p>Pour arrêter la tâche, dans le terminal, faites <span class="hl">CMD + C</span></p>
+                    <p>Pour arrêter la tâche, dans le terminal, faites <span class="hl">CTRL + C</span></p>
                 </section>
 
                 <!-- Dev server -->
-                <section>
+                <section id="dev-server">
                     <h3>Dev Server</h3>
                 </section>
 
                 <section>
                     <p>Le développement de certains sites nécessitent de faire tourner un serveur local</p>
                     <p>Grâce à <span class="hl">webpack-dev-server</span>, nous pouvons faire cela facilement</p>
-                    <p>Rajoutez les dépendances <span class="hl">style-loader</span> et <span class="hl">css-loader</span> à votre projet</p>
+                    <p>Rajoutez la dépendance <span class="hl">webpack-dev-server</span> à votre projet</p>
                     <pre><code data-trim contenteditable class="ccp">
 npm i -D webpack-dev-server
                     </code></pre>
@@ -1146,7 +1253,7 @@ npm run dev
                 </section>
 
                 <!-- Hot reload -->
-                <section>
+                <section id="hot-reload">
                     <h3>Hot reload</h3>
                 </section>
 
@@ -1242,8 +1349,12 @@ module.hot.dispose(() =>
                     <p>C'est à vous de vous assurer d'effacer les éventuelles traces de l'ancien code</p>
                 </section>
 
-                <!-- Environnements -->
                 <section>
+                    <p>⚠️ Le hot reloading ne fonctionne pas avec le HTML</p>
+                </section>
+
+                <!-- Environnements -->
+                <section id="environnements">
                     <h3>Environnements</h3>
                 </section>
 
@@ -1402,8 +1513,208 @@ module.exports = webpackMerge(
                     </code></pre>
                 </section>
 
-                <!-- Conclusion -->
+                <!-- Extract CSS -->
+                <section id="extract-css">
+                    <h3>Extract CSS</h3>
+                </section>
+
                 <section>
+                    <p>Actuellement, le CSS est directement contenu dans le JS et sera injecté quand ce dernier sera exécuté</p>
+                    <p>Il est préférable d'avoir un fichier CSS à part qui soit chargé dans le <span class="hl">&lt;head&gt;</span> à l'aide d'une balise <span class="hl">&lt;link&gt;</span></p>
+                    <p>Nous allons donc devoir extraire le CSS</p>
+                </section>
+
+                <section>
+                    <p>Rajoutez la dependance <span class="hl">mini-css-extract-plugin</span> à votre projet</p>
+                    <pre><code data-trim contenteditable class="ccp">
+npm i -D mini-css-extract-plugin
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Nous souhaitons extraire le CSS uniquement en <span class="u">production</span></p>
+                    <p>Nous allons donc retirer la <span class="hl">rule CSS</span> de la configuration <span class="u">common</span>, la remettre dans <span class="u">dev</span> et en créer une légèrement différente dans <span class="u">prod</span></p>
+                </section>
+
+                <section>
+                    <p>Supprimez la <span class="hl">rule CSS</span> de <span class="hl">bundler/webpack.common.js</span></p>
+                </section>
+
+                <section>
+                    <p>Ajoutez la <span class="hl">rule CSS</span> à <span class="hl">bundler/webpack.dev.js</span></p>
+                    <pre><code data-trim contenteditable class="js">
+// ...
+
+module.exports = webpackMerge(
+    commonConfiguration,
+    {
+        // ...
+
+        module:
+        {
+            rules:
+            [
+                {
+                    test: /\.css$/,
+                    use:
+                    [
+                        'style-loader',
+                        'css-loader'
+                    ]
+                }
+            ]
+        }
+    }
+)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Ajoutez la nouvelle <span class="hl">rule CSS</span> ainsi que le plugin <span class="hl">mini-css-extract-plugin</span> à <span class="hl">bundler/webpack.prod.js</span></p>
+                    <pre><code data-trim contenteditable class="js">
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+// ...
+
+        plugins:
+        [
+            new MiniCssExtractPlugin(),
+            // ...
+        ],
+        module:
+        {
+            rules:
+            [
+                {
+                    test: /\.css$/,
+                    use:
+                    [
+                        MiniCssExtractPlugin.loader,
+                        'css-loader'
+                    ]
+                }
+            ]
+        }
+        
+// ...
+                    </code></pre>
+                </section>
+                
+                <section>
+                    <p>Lancez un <span class="hl">build</span></p>
+                    <p>Le CSS est maintenant dans un fichier séparé</p>
+                </section>
+
+                <!-- Stylus -->
+                <section id="stylus">
+                    <h3>Stylus</h3>
+                </section>
+
+                <section>
+                    <p>Le CSS c'est bien, mais <a href="http://stylus-lang.com/" target="_blank">Stylus</a> c'est mieux</p>
+                    <p>Rajoutez les dépendances <span class="hl">stylus</span> et <span class="hl">stylus-loader</span></p>
+                    <pre><code data-trim contenteditable class="ccp">
+npm i -D stylus stylus-loader
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Rajouter la <span class="hl">rule</span> pour les fichiers <span class="hl">.styl</span> dans <span class="hl">bundler/webpack.dev.js</span></p>
+                    <pre><code data-trim contenteditable class="js">
+
+// ...
+
+                {
+                    test: /\.styl$/,
+                    use:
+                    [
+                        'style-loader',
+                        'css-loader',
+                        'stylus-loader'
+                    ]
+                }
+
+// ...
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Rajouter la <span class="hl">rule</span> pour les fichiers <span class="hl">.styl</span> dans <span class="hl">bundler/webpack.prod.js</span></p>
+                    <pre><code data-trim contenteditable class="js">
+
+// ...
+
+                {
+                    test: /\.styl$/,
+                    use:
+                    [
+                        MiniCssExtractPlugin.loader,
+                        'css-loader',
+                        'stylus-loader'
+                    ]
+                }
+
+// ...
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Remplacez les fichiers <span class="hl">.css</span> par <span class="hl">.styl</span></pre>
+                    <p>Lancez un <span class="hl">build</span> ou un <span class="hl">dev</span></pre>
+                    <p>Codez votre style en Stylus</p>
+                </section>
+
+                <!-- Static files -->
+                <section id="static-files">
+                    <h3>Static files</h3>
+                </section>
+
+                <section>
+                    <p>Nous avons parfois besoin que des fichiers soient accessibles sans pour autant les faire passer par des loaders</p>
+                    <p>Exemples: favicons, sitemap.xml, .htaccess, certaines images, etc.</p>
+                    <p>Mais nous souhaitons y avoir accès même en <span class="u">développement</span></p>
+                </section>
+
+                <section>
+                    <p>Pour cela, nous allons utiliser <span class="hl">copy-webpack-plugin</span></p>
+                    <pre><code data-trim contenteditable class="ccp">
+npm i -D copy-webpack-plugin
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Rajoutez le plugin à <span class="hl">bundlers/webpack.common.js</span> de manière à ce qu'il soit utilisé en <span class="u">développement</span> et en <span class="u">production</span></p>
+                    <pre><code data-trim contenteditable class="js">
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+// ...
+
+        plugins:
+        [
+            new CopyWebpackPlugin([ { from: 'static' } ]),
+            // ...
+        ]
+
+// ...
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Créez un dossier <span class="hl">static/</span></p>
+                    <p>Rajoutez y une image nommée <span class="hl">static-image.jpg</span></p>
+                    <p>Chargez la dans le html</p>
+                    <pre><code data-trim contenteditable class="html">
+&lt;img src="/static-image.jpg"&gt;
+                    </code></pre>
+                    <p>⚠️ le chemin doit être absolu (commencer par un <span class="hl">/</span>)</p>
+                </section>
+
+                <section>
+                    <p>Lancez un <span class="hl">dev</span> ou un <span class="hl">build</span>, l'image sera bien chargée</p>
+                </section>
+
+                <!-- Conclusion -->
+                <section id="conclusion">
                     <p>Vous avez maintenant une base Webpack solide, mais vous pouvez aller encore plus loin</p>
                     <p>Lisez la <a href="https://webpack.js.org/configuration/" target="_blank">documentation</a> et expérimentez</p>
                 </section>

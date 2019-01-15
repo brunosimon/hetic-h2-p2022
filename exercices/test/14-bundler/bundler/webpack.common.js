@@ -1,4 +1,5 @@
 const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const mode = process.env.NODE_ENV
@@ -13,6 +14,7 @@ module.exports = {
     devtool: 'source-map',
     plugins:
     [
+        new CopyWebpackPlugin([ { from: 'static' } ]),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../src/index.html'),
             minify: true

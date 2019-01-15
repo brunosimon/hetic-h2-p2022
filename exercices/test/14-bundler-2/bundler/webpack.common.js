@@ -20,14 +20,14 @@ module.exports = {
     {
         rules:
         [
-            {
-                test: /\.css$/,
-                use:
-                [
-                    'style-loader',
-                    'css-loader'
-                ]
-            },
+            // {
+            //     test: /\.css$/,
+            //     use:
+            //     [
+            //         'style-loader',
+            //         'css-loader'
+            //     ]
+            // },
             {
                 test: /\.(jpg|png|gif|svg)$/,
                 use:

@@ -18,7 +18,7 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
         - [x] Scroll parallax
         - [x] Mouse parallax
         - [x] Carousel
-        - [ ] Gallerie
+        - [x] Gallerie
         - [ ] Async navigation
     - [ ] Techniques
         - [x] script tag
@@ -62,13 +62,13 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
 - [x] Canvas
 - [ ] Responsive
 - [ ] Fonts
-- [ ] Task runners
-- [ ] Preprocessing
+- [x] Task runners
+- [x] Preprocessing
 
 ### Trimestre 2
 
 - [ ] Clean code
-- [ ] WebGL
+- [x] WebGL
 - [ ] PHP les bases
 - [ ] PHP variables
 - [ ] PHP boucles
