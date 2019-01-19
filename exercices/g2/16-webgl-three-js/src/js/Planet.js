@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+
 import globeDiffuseSource from '../images/textures/planet/globe/diffuse.jpg'
 import globeNormalSource from '../images/textures/planet/globe/normal.jpg'
 import globeRoughnessSource from '../images/textures/planet/globe/roughness.jpg'
@@ -7,63 +8,41 @@ import rockDiffuseAlphaSource from '../images/textures/planet/rock/diffuse-alpha
 
 export default class Planet
 {
-    constructor()
+    constructor(_options)
     {
+        this.textureLoader = _options.textureLoader
+
         this.container = new THREE.Object3D()
-        this.container.scale.x = 1
-        this.container.scale.y = 1
-        this.container.scale.z = 1
         
-        this.setTextures()
         this.setGlobe()
         this.setClouds()
         this.setBelt()
-        this.setRAF()
-    }
-
-    setTextures()
-    {
-        this.textures = {}
-        
-        // Loader
-        this.textures.loader = new THREE.TextureLoader()
-
-        // Textures
-        this.textures.globeDiffuse = this.textures.loader.load(globeDiffuseSource)
-        this.textures.globeNormal = this.textures.loader.load(globeNormalSource)
-        this.textures.globeRoughness = this.textures.loader.load(globeRoughnessSource)
-        this.textures.cloudsAlpha = this.textures.loader.load(cloudsAlphaSource)
-        this.textures.rockDiffuseAlpha = this.textures.loader.load(rockDiffuseAlphaSource)
+        this.setAnimation()
     }
 
     setGlobe()
     {
         this.globe = {}
-        this.globe.geometry = new THREE.SphereBufferGeometry(1, 32, 32)
+        this.globe.geometry = new THREE.SphereBufferGeometry(1, 45, 45)
         this.globe.material = new THREE.MeshStandardMaterial({
-            map: this.textures.globeDiffuse,
-            normalMap: this.textures.globeNormal,
-            metalnessMap: this.textures.globeRoughness,
-            roughnessMap: this.textures.globeRoughness
+            map: this.textureLoader.load(globeDiffuseSource),
+            normalMap: this.textureLoader.load(globeNormalSource),
+            metalnessMap: this.textureLoader.load(globeRoughnessSource),
+            roughnessMap: this.textureLoader.load(globeRoughnessSource)
         })
         this.globe.mesh = new THREE.Mesh(this.globe.geometry, this.globe.material)
-
         this.container.add(this.globe.mesh)
     }
 
     setClouds()
     {
         this.clouds = {}
-        this.clouds.geometry = new THREE.SphereBufferGeometry(1.01, 32, 32)
+        this.clouds.geometry = new THREE.SphereBufferGeometry(1.01, 45, 45)
         this.clouds.material = new THREE.MeshStandardMaterial({
-            transparent: true,
-            color: 0xffffff,
-            alphaMap: this.textures.cloudsAlpha,
-            metalness: 0,
-            roughness: 0.9
+            alphaMap: this.textureLoader.load(cloudsAlphaSource),
+            transparent: true
         })
         this.clouds.mesh = new THREE.Mesh(this.clouds.geometry, this.clouds.material)
-
         this.container.add(this.clouds.mesh)
     }
 
@@ -71,15 +50,8 @@ export default class Planet
     {
         this.belt = {}
         this.belt.geometry = new THREE.Geometry()
-        this.belt.material = new THREE.PointsMaterial({
-            color: 0xffddcc,
-            transparent: true,
-            sizeAttenuation: true,
-            size: 0.01,
-            map: this.textures.rockDiffuseAlpha
-        })
 
-        for(let i = 0; i < 300000; i++)
+        for(let i = 0; i < 200000; i++)
         {
             const vertice = new THREE.Vector3()
 
@@ -93,19 +65,25 @@ export default class Planet
             this.belt.geometry.vertices.push(vertice)
         }
 
+        this.belt.material = new THREE.PointsMaterial({
+            size: 0.01,
+            // sizeAttenuation: false,
+            map: this.textureLoader.load(rockDiffuseAlphaSource),
+            transparent: true
+        })
         this.belt.points = new THREE.Points(this.belt.geometry, this.belt.material)
         this.container.add(this.belt.points)
     }
 
-    setRAF()
+    setAnimation()
     {
         const loop = () =>
         {
             window.requestAnimationFrame(loop)
 
             this.globe.mesh.rotation.y += 0.001
-            this.clouds.mesh.rotation.y += 0.0009
-            this.belt.points.rotation.y += 0.0001
+            this.clouds.mesh.rotation.y += 0.0006
+            this.belt.points.rotation.y += 0.0002
         }
         loop()
     }
