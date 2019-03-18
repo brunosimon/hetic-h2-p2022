@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>TRIM 2 - Cours 19 - PHP - Routing</title>
+        <meta name="description" content="">
+        <meta name="author" content="Bruno Simon">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
+        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css"> -->
+        <link rel="stylesheet" href="../src/custom/style.css">
+        <script>
+            document.write( '<link rel="stylesheet" href="../src/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h3>H2 - P2022</h3>
+                    <h1>Développement web</h1>
+                    <h3>Cours 19</h3>
+                    <ul>
+                        <li>github : <a target="_blank" href="https://github.com/brunosimon/hetic-p2022">https://github.com/brunosimon/hetic-p2022</a></li>
+                        <li>site : <a target="_blank" href="http://bruno-simon.com/hetic/p2022/">http://bruno-simon.com/hetic/p2022/</a></li>
+                        <li>contact : <a target="_blank" mailto="bruno.simon@hetic.net">bruno.simon@hetic.net</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>PHP</h3>
+                    <h1>Routing</h1>
+                </section>
+
+                <section>
+                    <p>En développement back, il s'agit du processus permettant de renvoyer le bon contenu au visiteur selon l'URL demandée</p>
+                </section>
+
+                <section>
+                    <p>Si l'utilisateur tape <span class="hl">http://monsite.com/contact</span> la page de contact doit apparaître</p>
+                    <p>Il n'a pas besoin de taper le chemin exacte du fichier PHP même si le fichier se trouve par exemple dans <span class="hl">/pages/contact.php</span></p>
+                </section>
+
+                <section>
+                    <p>Il y a des centaines de façons de faire. Nous allons en voir une assez facile et robuste</p>
+                    <p>Ce sera aussi l'occasion d'organiser nos fichiers sans être contraint par l'URL que vont taper les visiteurs</p>
+                </section>
+
+                <section>
+                    <h2>Version simple</h2>
+                </section>
+
+                <section>
+                    <p>Nous allons faire un premier exemple très simple</p>
+                    <p>Téléchargez les <a href="./routing-1.zip">fichiers suivants</a> et mettez les en place dans votre environnement local</p>
+                </section>
+
+                <section>
+                    <pre><code contenteditable>
+./
+├── assets/
+│   ├── script.js
+│   └── style.css
+└── pages/
+    ├── about.php
+    ├── contact.php
+    └── index.php
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Actuellement, si l'on souhaite aller sur la page de contact, il faut taper <span class="hl">/pages/contact.php</span> dans l'URL ce qui ni user, ni SEO friendly</p>
+                    <p>Pour accéder à la home, il suffit de taper <span class="hl">/pages/</span> car Apache, par défaut, redirige vers le fichier <span class="hl">index.php</span> s'il existe</p>
+                </section>
+
+                <section>
+                    <p>Nous souhaitons maintenant que l'utilisateur puisse taper <span class="hl">/contact</span> pour accéder à la page de contact</p>
+                    <p>Pour cela nous allons avoir besoin d'un fichier <span class="hl">.htaccess</span></p>
+                    <p>Ce fichier contiendra des règles de réécriture qui seront interprétées par Apache</p>
+                </section>
+
+                <section>
+                    <p>Sur mac, les fichiers commençant par un <span class="hl">.</span> sont cachés</p>
+                    <p>Soit vous passez par votre éditeur qui devrait les afficher, soit vous changez la configuration de votre finder :</p>
+                    <ul>
+                        <li>Ouvrez le terminal</li>
+                        <li>Envoyez <span class="hl">defaults write com.apple.finder AppleShowAllFiles 1</span></li>
+                        <li>Envoyez <span class="hl">killall Finder</span></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>À la racine du site, créez un fichier <span class="hl">.htaccess</span></p>
+                    <pre><code contenteditable data-trim>
+RewriteEngine On
+
+RewriteRule ^$ ./pages/index.php
+RewriteRule ^contact$ ./pages/contact.php
+RewriteRule ^the-team$ ./pages/the_team.php
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code contenteditable data-trim>
+RewriteEngine On
+                    </code></pre>
+                    <p>Permet d'activer la réécriture</p>
+                </section>
+
+                <section>
+                    <pre><code contenteditable data-trim>
+RewriteRule ^contact$ ./pages/contact.php
+                    </code></pre>
+                    <ul>
+                        <li><span class="hl">RewriteRule</span> permet d'écrire une régle de réécriture</li>
+                        <li><span class="hl">^contact$</span> correspond à la condition et s'écrit en une regex très simple voulant dire <span class="u">commence et termine par "contact"</span></li>
+                        <li><span class="hl">./pages/contact.php</span> est le fichier à servir sur la condition est remplie</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>En résumé, si l'utilisateur tape l'URL <span class="hl">contact</span>, le fichier <span class="hl">./pages/contact.php</span> lui sera servi</p>
+                </section>
+
+                <section>
+                    <p>Testez le site en tapant <span class="hl">/</span>, <span class="hl">/contact</span> ou <span class="hl">/about</span> et les contenus devraient s'afficher</p>
+                </section>
+
+                <section>
+                    <p>⚠️ le CSS et le JS ne fonctionne plus.<br>C'est normal car l'URL n'est plus la même.</p>
+                    <p>Remplacez simplement les chemin <span class="hl">../</span> par <span class="hl">./</span></p>
+                    <pre><code contenteditable data-trim class="html">
+<!-- ... -->
+
+&lt;link rel="stylesheet" href="./assets/style.css"&gt;
+
+<!-- ... -->
+
+&lt;script src="./assets/script.js"&gt;&lt;/script&gt;
+
+<!-- ... -->
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Version complexe</h2>
+                </section>
+
+                <section>
+                    <p>La première version que nous avons développé peut suffire dans beaucoup de cas, mais nous allons développer une version plus robuste qui gère les 404 et les routes dynamiques.</p>
+                </section>
+
+                <section>
+                    <p>Téléchargez les <a href="./routing-2.zip">fichiers suivants</a> et mettez les en place dans votre environnement local</p>
+                </section>
+
+                <section>
+                    <pre><code contenteditable>
+./
+├── controllers/
+│   ├── 404.php
+│   ├── about.php
+│   ├── article.php
+│   └── home.php
+├── public/
+│   └── assets/
+│   │   ├── script.js
+│   │   └── style.css
+│   └── index.php
+└── views/
+    ├── pages/
+    │   ├── 404.php
+    │   ├── about.php
+    │   ├── article.php
+    │   └── home.php
+    └── partials/
+        ├── footer.php
+        └── header.php
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Cette structure de fichiers se <span class="u">rapproche</span> d'un modèle connu appelé <span class="hl">MVC</span></p>
+                    <table>
+                        <tr>
+                            <td><span class="hl">M</span>odel</td>
+                            <td>Gestion des données</td>
+                        </tr>
+                        <tr>
+                            <td><span class="hl">V</span>iew</td>
+                            <td>Gestion du template</td>
+                        </tr>
+                        <tr>
+                            <td><span class="hl">C</span>ontroller</td>
+                            <td>Lien entre les données et le template</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <p>Nous allons commencer par faire en sorte de spécifier le chemin via un paramètre en GET appelé <span class="hl">q</span></p>
+                    <p>Plus simplement :</p>
+                    <p>Si l'utilisateur tape <span class="hl">http://monsite.com?q=contact</span> la page contact lui sera servie</p>
+                    <p>S'il tape <span class="hl">http://monsite.com?q=article/10</span> l'article dont l'ID est 10 lui sera servi</p>
+                </section>
+
+                <section>
+                    <pre><code contenteditable data-trim class="php">
+&lt;?php
+
+/**
+ * Routing
+ */
+
+// Get 'q' parameter (default is home)
+$q = !empty($_GET['q']) ? $_GET['q'] : 'home';
+
+// Set '404' as default controller
+$controller = '404'; 
+
+// Home
+if($q === 'home')
+{
+    $controller = 'home';
+}
+
+// About
+else if($q === 'about')
+{
+    $controller = 'about';
+}
+
+// Article
+else if(preg_match('/^article\/[0-9]+$/', $q))
+{
+    $controller = 'article';
+}
+
+// Include the right controller
+include '../controllers/'.$controller.'.php';
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Nous pouvons enfin utiliser des URL propres</p>
+                    <ul>
+                        <li><span class="hl">?q=</span> => Home</li>
+                        <li><span class="hl">?q=about</span> => Contact</li>
+                        <li><span class="hl">?q=article/10</span> => Article</li>
+                        <li><span class="hl">?q=dskfhsidfhisdfuh</span> => 404</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <p>Testez le site en tapant <span class="hl">?q=about</span>, <span class="hl">q=</span> ou <span class="hl">q=article/10</span> et les contenus devraient s'afficher</p>
+                </section>
+
+                <section>
+                    <p>Dans <span class="hl">public/</span>, créez un fichier <span class="hl">.htaccess</span></p>
+                    <pre><code contenteditable data-trim>
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^(.*)$ ./index.php?q=$1 [QSA]
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code contenteditable data-trim>
+RewriteRule ^(.*)$ ./index.php?q=$1 [QSA]
+                    </code></pre>
+                    <p>Même principe qu'avec la précédente version sauf que toutes les requêtes sont redirigées vers le fichier <span class="hl">index.php</span> tout en rajoutant une variable <span class="hl">q</span> en GET correspondant au chemin</p>
+                    <p>Lorsque l'utilisateur va taper <span class="hl">/about</span>, c'est comme s'il allait taper <span class="hl">?q=about</span></p>
+                </section>
+
+                <section>
+                    <p><span class="hl">[QSA]</span> est un flag</p>
+                    <p>Il en existe <a href="https://httpd.apache.org/docs/2.4/rewrite/flags.html" target="_blank">plusieurs</a></p>
+                    <p>Celui-ci permet de combiner les paramètres en GET de la redirection avec les paramètres en GET déjà présent dans l'URL</p>
+                </section>
+
+                <section>
+                    <pre><code contenteditable data-trim>
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+                    </code></pre>
+                    <p>Permet d'indiquer à Apache de ne pas appliquer la réécriture si le chemin correspond à un fichier</p>
+                    <p>Cette partie est nécessaire pour éviter d'avoir une boucle infinie et pour pouvoir charger les assets (CSS, JS, images, etc.)</p>
+                </section>
+
+                <section>
+                    <p>Nous pouvons enfin utiliser des URL propres</p>
+                    <ul>
+                        <li><span class="hl">/</span> => Home</li>
+                        <li><span class="hl">/about</span> => Contact</li>
+                        <li><span class="hl">/article/10</span> => Article</li>
+                        <li><span class="hl">/dskfhsidfhisdfuh</span> => 404</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>Nous avons malheureusement un problème de chemin.</p>
+                    <p>La page <span class="hl">/article/10</span> fausse le chargement du CSS et les liens vers les autres pages car il y a plusieurs <span class="hl">/</span> dans le chemin</p>
+                </section>
+
+                <section>
+                    <p>Dans <span class="hl">/public/index.php</span>, rajouter une variable globale <span class="hl">URL</span> contenant l'URL absolue pour accéder au site</p>
+                    <pre><code contenteditable data-trim class="php">
+/**
+ * Configuration
+ */
+define('URL', 'http://localhost:8888/chemin/vers/dossier/public/');
+
+// ...
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Vous pouvez maintenant utiliser cette variable dans les liens et dans le chargement des assets</p>
+                    <pre><code contenteditable data-trim class="html">
+&lt;link rel="stylesheet" href="&lt;?= URL ?>assets/style.css"&gt;
+
+&lt;!-- ... --&gt;
+
+&lt;a href="&lt;?= URL ?&gt;home"&gt;Home&lt;/a&gt;
+
+&lt;!-- ... --&gt;
+
+&lt;script src="&lt;?= URL ?&gt;assets/script.js"&gt;&lt;/script&gt;
+                    </code></pre>
+                </section>
+
+            </div>
+        </div>
+
+        <script src="../src/reveal.js/lib/js/head.min.js"></script>
+        <script src="../src/reveal.js/js/reveal.js"></script>
+        <script src="../src/custom/script.js"></script>
+    </body>
+</html>
