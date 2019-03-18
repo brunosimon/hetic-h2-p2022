@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WebGL - Three.js</title>
-<link href="main.css" rel="stylesheet"></head>
+    <title><?= $title ?></title>
+</head>
 <body>
-    
-<script type="text/javascript" src="bundle.0d2dcfd9732bb7fa9445.js"></script></body>
-</html>
+    <header>
+        <a href="index.php">Home</a>
+        <a href="contact.php">Contact</a>
+    </header>

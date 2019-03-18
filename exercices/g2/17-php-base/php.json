@@ -1,0 +1,49 @@
+
+{
+    "printr":
+    {
+        "prefix": "printr",
+        "body":
+        [
+            "echo '<pre>';",
+            "print_r($1);",
+            "echo '</pre>';"
+        ],
+        "description": "printr"
+    },
+    "printre":
+    {
+        "prefix": "printre",
+        "body":
+        [
+            "echo '<pre>';",
+            "print_r($1);",
+            "echo '</pre>';",
+            "exit;"
+        ],
+        "description": "printre"
+    },
+    "vardump":
+    {
+        "prefix": "vardump",
+        "body":
+        [
+            "echo '<pre>';",
+            "var_dump($1);",
+            "echo '</pre>';"
+        ],
+        "description": "vardump"
+    },
+    "vardumpe":
+    {
+        "prefix": "vardumpe",
+        "body":
+        [
+            "echo '<pre>';",
+            "var_dump($1);",
+            "echo '</pre>';",
+            "exit;"
+        ],
+        "description": "vardumpe"
+    }
+}

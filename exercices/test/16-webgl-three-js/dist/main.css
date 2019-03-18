@@ -1,17 +1,21 @@
-@font-face {
-  font-family: Heboo;
-  src: url(fonts/144f759e6d59e391b0d28d657becc7e3.woff2) format('woff2');
-  font-weight: 600;
+* {
+  margin: 0;
+  padding: 0;
 }
+html,
 body {
-  font-family: Heboo;
-  font-weight: 600;
-  background: #008000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
-.image {
-  width: 500px;
-  height: 300px;
-  background-image: url(images/d361e21073a5f247d108572b35111d3c.jpg);
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 

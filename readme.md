@@ -69,22 +69,22 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
 
 - [ ] Clean code
 - [x] WebGL
-- [ ] PHP les bases
-- [ ] PHP variables
-- [ ] PHP boucles
-- [ ] PHP conditions
-- [ ] PHP fonctions
-- [ ] PHP includes
-- [ ] PHP debug
-- [ ] HTML/PHP formulaire
-- [ ] PHP/SQL Base de données MySQL
+- [x] PHP les bases
+- [x] PHP variables
+- [x] PHP boucles
+- [x] PHP conditions
+- [x] PHP fonctions
+- [x] PHP includes
+- [x] PHP debug
+- [x] HTML/PHP formulaire
+- [x] PHP/SQL Base de données MySQL
 - [ ] PHP APIs
+- [ ] PHP routing
 
 ### Trimestre 3
 
 - [ ] PHP Cookies/Sessions
 - [ ] PHP/SQL Mots de passes
-- [ ] PHP routing
 - [ ] PHP frameworks
 - [ ] PHP regex
 - [ ] PHP/SQL Avancé

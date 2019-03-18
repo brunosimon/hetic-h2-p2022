@@ -1,0 +1,15 @@
+.message
+{
+    padding: 10px;
+    border: 1px solid;
+}
+
+.message.error
+{
+    color: red;
+}
+
+.message.success
+{
+    color: green;
+}

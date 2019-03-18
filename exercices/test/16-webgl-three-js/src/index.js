@@ -1,6 +1,6 @@
 import './css/style.styl'
-import grassTextureSource from './images/textures/house/grass.jpg'
-import Planet from './js/Planet.js'
+// import grassTextureSource from './images/textures/house/grass.jpg'
+// import Planet from './js/Planet.js'
 
 import * as THREE from 'three'
 
@@ -58,11 +58,11 @@ const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.01,
 camera.position.z = 3
 scene.add(camera)
 
-/**
- * Planet
- */
-const planet = new Planet()
-scene.add(planet.container)
+// /**
+//  * Planet
+//  */
+// const planet = new Planet()
+// scene.add(planet.container)
 
 // /**
 //  * House
@@ -152,56 +152,62 @@ sunLight.shadow.camera.bottom = - 1.20
 sunLight.shadow.camera.left = - 1.20
 scene.add(sunLight)
 
-// /**
-//  * Shader
-//  */
-// const shaderGeometry = new THREE.SphereGeometry(1.5, 46, 46)
-// const shaderMaterial = new THREE.ShaderMaterial({
-//     uniforms:
-//     {
-//         uTime: { value: 0 }
-//     },
-//     vertexShader:
-//     `
-//         #define M_PI 3.1415926535897932384626433832795
+/**
+ * Shader
+ */
+const shaderGeometry = new THREE.SphereGeometry(1.5, 46, 46)
+const noShaderMaterial = new THREE.MeshLambertMaterial({ color: 0xff0000 })
+const shaderMaterial = new THREE.ShaderMaterial({
+    uniforms:
+    {
+        uTime: { value: 0 }
+    },
+    vertexShader:
+    `
+        #define M_PI 3.1415926535897932384626433832795
 
-//         uniform float uTime;
+        uniform float uTime;
 
-//         varying vec3 vNormal;
-//         varying float vOffset;
+        varying vec3 vNormal;
+        varying float vOffset;
 
-//         void main()
-//         {
-//             vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+        void main()
+        {
+            vec4 modelPosition = modelMatrix * vec4(position, 1.0);
 
-//             float offset = 0.0;
-//             offset += sin(modelPosition.y * 20.0 - uTime * 0.03);
-//             offset += sin(uv.x * M_PI * 2.0 - uTime * 0.03);
-//             modelPosition.xyz += normal * offset * 0.1;
+            float offset = 0.0;
+            offset += sin(modelPosition.y * 20.0 - uTime * 0.03);
+            offset += sin(uv.x * M_PI * 2.0 - uTime * 0.03);
+            modelPosition.xyz += normal * offset * 0.1;
 
-//             vOffset = offset;
+            vOffset = offset;
 
-//             vNormal = normal;
+            vNormal = normal;
 
-//             gl_Position = projectionMatrix * viewMatrix * modelPosition;
-//         }
-//     `,
-//     fragmentShader:
-//     `
-//         varying vec3 vNormal;
-//         varying float vOffset;
+            gl_Position = projectionMatrix * viewMatrix * modelPosition;
+        }
+    `,
+    fragmentShader:
+    `
+        varying vec3 vNormal;
+        varying float vOffset;
 
-//         void main()
-//         {
-//             vec3 color = vNormal;
-//             color += vec3(vOffset * 0.5);
+        void main()
+        {
+            vec3 color = vNormal;
+            color += vec3(vOffset * 0.5);
 
-//             gl_FragColor = vec4(color, 1.0);
-//         }
-//     `
-// })
-// const shaderMesh = new THREE.Mesh(shaderGeometry, shaderMaterial)
-// scene.add(shaderMesh)
+            gl_FragColor = vec4(color, 1.0);
+        }
+    `
+})
+const shaderMesh = new THREE.Mesh(shaderGeometry, noShaderMaterial)
+scene.add(shaderMesh)
+
+window.addEventListener('click', () =>
+{
+    shaderMesh.material = shaderMesh.material === shaderMaterial ? noShaderMaterial : shaderMaterial
+})
 
 /**
  * Renderer
@@ -218,8 +224,8 @@ const loop = () =>
 {
     window.requestAnimationFrame(loop)
 
-    // // Shader
-    // shaderMaterial.uniforms.uTime.value += 1
+    // Shader
+    shaderMaterial.uniforms.uTime.value += 1
 
     // // Update mesh
     // house.rotation.y += 0.003
