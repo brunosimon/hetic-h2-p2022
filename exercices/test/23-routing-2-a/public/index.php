@@ -3,7 +3,7 @@
 /**
  * Configuration
  */
-define('URL', 'http://localhost:8888/p2022/exercices/test/23-routing-2/public/');
+define('URL', 'http://localhost:8888/p2022/exercices/test/23-routing-2-a/public/');
 
 /**
  * Routing

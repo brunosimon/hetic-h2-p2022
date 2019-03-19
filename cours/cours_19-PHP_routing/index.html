@@ -49,7 +49,7 @@
                 </section>
 
                 <section>
-                    <p>Il y a des centaines de façons de faire. Nous allons en voir une assez facile et robuste</p>
+                    <p>Il y a des centaines de façons de faire. Nous allons voir une version assez simple et robuste puis une version plus complète, mais complexe.</p>
                     <p>Ce sera aussi l'occasion d'organiser nos fichiers sans être contraint par l'URL que vont taper les visiteurs</p>
                 </section>
 
@@ -63,7 +63,7 @@
                 </section>
 
                 <section>
-                    <pre><code contenteditable>
+                    <pre><code data-trim contenteditable>
 ./
 ├── assets/
 │   ├── script.js
@@ -76,7 +76,7 @@
                 </section>
 
                 <section>
-                    <p>Actuellement, si l'on souhaite aller sur la page de contact, il faut taper <span class="hl">/pages/contact.php</span> dans l'URL ce qui ni user, ni SEO friendly</p>
+                    <p>Actuellement, si l'on souhaite aller sur la page de contact, il faut taper <span class="hl">/pages/contact.php</span> dans l'URL ce qui n'est ni user friendly, ni SEO friendly</p>
                     <p>Pour accéder à la home, il suffit de taper <span class="hl">/pages/</span> car Apache, par défaut, redirige vers le fichier <span class="hl">index.php</span> s'il existe</p>
                 </section>
 
@@ -103,7 +103,7 @@ RewriteEngine On
 
 RewriteRule ^$ ./pages/index.php
 RewriteRule ^contact$ ./pages/contact.php
-RewriteRule ^the-team$ ./pages/the_team.php
+RewriteRule ^about$ ./pages/about.php
                     </code></pre>
                 </section>
 
@@ -121,20 +121,17 @@ RewriteRule ^contact$ ./pages/contact.php
                     <ul>
                         <li><span class="hl">RewriteRule</span> permet d'écrire une régle de réécriture</li>
                         <li><span class="hl">^contact$</span> correspond à la condition et s'écrit en une regex très simple voulant dire <span class="u">commence et termine par "contact"</span></li>
-                        <li><span class="hl">./pages/contact.php</span> est le fichier à servir sur la condition est remplie</li>
+                        <li><span class="hl">./pages/contact.php</span> est le fichier à servir si la condition est remplie</li>
                     </ul>
                 </section>
 
                 <section>
-                    <p>En résumé, si l'utilisateur tape l'URL <span class="hl">contact</span>, le fichier <span class="hl">./pages/contact.php</span> lui sera servi</p>
+                    <p>En résumé, si l'utilisateur tape l'URL <span class="hl">/contact</span>, le fichier <span class="hl">./pages/contact.php</span> lui sera servi</p>
+                    <p>Pareil pour <span class="hl">/</span> et <span class="hl">/about</span></p>
                 </section>
 
                 <section>
-                    <p>Testez le site en tapant <span class="hl">/</span>, <span class="hl">/contact</span> ou <span class="hl">/about</span> et les contenus devraient s'afficher</p>
-                </section>
-
-                <section>
-                    <p>⚠️ le CSS et le JS ne fonctionne plus.<br>C'est normal car l'URL n'est plus la même.</p>
+                    <p>⚠️ le CSS et le JS ne fonctionnent plus car l'URL n'est plus la même.</p>
                     <p>Remplacez simplement les chemin <span class="hl">../</span> par <span class="hl">./</span></p>
                     <pre><code contenteditable data-trim class="html">
 <!-- ... -->
@@ -154,7 +151,7 @@ RewriteRule ^contact$ ./pages/contact.php
                 </section>
 
                 <section>
-                    <p>La première version que nous avons développé peut suffire dans beaucoup de cas, mais nous allons développer une version plus robuste qui gère les 404 et les routes dynamiques.</p>
+                    <p>La première version que nous avons développé peut suffire dans beaucoup de cas, mais nous allons développer une version plus complète qui gère les 404 et les routes dynamiques.</p>
                 </section>
 
                 <section>
@@ -205,13 +202,19 @@ RewriteRule ^contact$ ./pages/contact.php
                 </section>
 
                 <section>
+                    <p>Nous allons faire fonctionner notre routing dans le fichier <span class="hl">/public/index.php</span></p>
+                    <p>En local, nous accederont au site en rajoutant <span class="hl">/public/index.php</span> à l'URL</p>
+                    <p>Lorsque vous allez mettre votre site en production, il faudrait modifier la configuration du domaine pour le faire pointer directement dans le dossier <span class="hl">/public/</span></p>
+                </section>
+
+                <section>
                     <p>Nous allons commencer par faire en sorte de spécifier le chemin via un paramètre en GET appelé <span class="hl">q</span></p>
-                    <p>Plus simplement :</p>
                     <p>Si l'utilisateur tape <span class="hl">http://monsite.com?q=contact</span> la page contact lui sera servie</p>
                     <p>S'il tape <span class="hl">http://monsite.com?q=article/10</span> l'article dont l'ID est 10 lui sera servi</p>
                 </section>
 
                 <section>
+                    <p>Dans <span class="hl">/public/index.php</span></p>
                     <pre><code contenteditable data-trim class="php">
 &lt;?php
 
@@ -226,7 +229,7 @@ $q = !empty($_GET['q']) ? $_GET['q'] : 'home';
 $controller = '404'; 
 
 // Home
-if($q === 'home')
+if($q === '')
 {
     $controller = 'home';
 }
@@ -238,7 +241,7 @@ else if($q === 'about')
 }
 
 // Article
-else if(preg_match('/^article\/[0-9]+$/', $q))
+else if(preg_match('/^article\/[1-9][0-9]*$/', $q))
 {
     $controller = 'article';
 }
@@ -249,7 +252,7 @@ include '../controllers/'.$controller.'.php';
                 </section>
 
                 <section>
-                    <p>Nous pouvons enfin utiliser des URL propres</p>
+                    <p>Nous pouvons maintenant utiliser les URL suivantes</p>
                     <ul>
                         <li><span class="hl">?q=</span> => Home</li>
                         <li><span class="hl">?q=about</span> => Contact</li>
@@ -257,11 +260,12 @@ include '../controllers/'.$controller.'.php';
                         <li><span class="hl">?q=dskfhsidfhisdfuh</span> => 404</li>
                     </ul>
                 </section>
-                
-                <section>
-                    <p>Testez le site en tapant <span class="hl">?q=about</span>, <span class="hl">q=</span> ou <span class="hl">q=article/10</span> et les contenus devraient s'afficher</p>
-                </section>
 
+                <section>
+                    <p>Notre routing fonctionne, mais nous aimerions maintenant nous débarasser du <span class="hl">?q=</span></p>
+                    <p>Nous allons à nouveau utiliser un fichier <span class="hl">.htaccess</span></p>
+                </section>
+                
                 <section>
                     <p>Dans <span class="hl">public/</span>, créez un fichier <span class="hl">.htaccess</span></p>
                     <pre><code contenteditable data-trim>
@@ -325,7 +329,7 @@ define('URL', 'http://localhost:8888/chemin/vers/dossier/public/');
                 </section>
 
                 <section>
-                    <p>Vous pouvez maintenant utiliser cette variable dans les liens et dans le chargement des assets</p>
+                    <p>Vous pouvez maintenant utiliser cette variable pour le chargement des assets et pour les liens</p>
                     <pre><code contenteditable data-trim class="html">
 &lt;link rel="stylesheet" href="&lt;?= URL ?>assets/style.css"&gt;
 
@@ -337,6 +341,18 @@ define('URL', 'http://localhost:8888/chemin/vers/dossier/public/');
 
 &lt;script src="&lt;?= URL ?&gt;assets/script.js"&gt;&lt;/script&gt;
                     </code></pre>
+                </section>
+
+                <section>
+                    <h2>Conclusion</h2>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>Prenez le temps de mettre en place un routing propre, user friendly et SEO friendly</li>
+                        <li>Nous avons développé un routing à l'arrache dans index.php, mais rien ne vous empêche de faire une version plus maintenable et facile à configurer</li>
+                        <li>Profitez-en pour organiser vos fichiers</li>
+                    </ul>
                 </section>
 
             </div>
