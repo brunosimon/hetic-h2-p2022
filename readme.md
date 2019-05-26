@@ -78,14 +78,14 @@ GitHub des cours de développement web en deuxième année pour la promotion P20
 - [x] PHP debug
 - [x] HTML/PHP formulaire
 - [x] PHP/SQL Base de données MySQL
-- [ ] PHP APIs
-- [ ] PHP routing
+- [x] PHP APIs
+- [x] PHP routing
+- [x] PHP/SQL Avancé
 
 ### Trimestre 3
 
-- [ ] PHP Cookies/Sessions
-- [ ] PHP/SQL Mots de passes
-- [ ] PHP frameworks
-- [ ] PHP regex
-- [ ] PHP/SQL Avancé
+- [x] PHP Cookies/Sessions
+- [x] PHP/SQL Mots de passes
+- [x] PHP regex
+- [x] PHP frameworks
 - [ ] PHP orienté objet

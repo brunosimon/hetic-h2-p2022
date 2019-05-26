@@ -1,0 +1,15 @@
+{% include 'partials/header.twig' %}
+
+{# Titles #}
+<h2>P{{ promotion.year }}</h2>
+
+<p>{{ promotion.description }}</p>
+
+{# List #}
+{% for _student in students %}
+    <div>
+        <a href="{{ path_for('student', { slug: _student.slug }) }}">{{ _student.first_name ~ ' ' ~ _student.last_name }}</a>
+    </div>
+{% endfor %}
+
+{% include 'partials/footer.twig' %}

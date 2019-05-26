@@ -1,0 +1,28 @@
+{% include 'partials/header.twig' %}
+
+    <h1><a href="{{ path_for('home') }}">{{ title|upper|reverse|replace({ 'O': '0'}) }}</a></h1>
+
+    <a href="{{ path_for('test', { category: 'toto', number: 3 }) }}">Test</a>
+    
+    <img src="{{ picture }}" width="200" height="200">
+    
+    {% set age = 'now'|date('Y') - yearOfBirth %}
+    <p>{{ age ~ ' ans' }}</p>
+
+    {% if not available %}
+        <h4>I am currently available</h4>
+    {% else %}
+        <h4>I am not available</h4>
+    {% endif %}
+    
+    <h2>{{ introduction }}</h2>
+
+    <h2>Projets</h2>
+    {% for _key, _project in projects %}
+        <div>
+            <h3>{{ _key ~ ' - ' ~ _project.title }}</h3>
+            <p>{{ _project.description }}</p>
+        </div>
+    {% endfor %}
+
+{% include 'partials/footer.twig' %}

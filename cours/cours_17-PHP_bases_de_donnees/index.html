@@ -409,6 +409,15 @@ echo 'Connected';
                 </section>
 
                 <section>
+                    <p>⚠️</p>
+                    <p>Par défaut, PDO n'affiche pas les erreurs SQL</p>
+                    <p>Rajoutez la ligne suivante après avoir instancié PDO pour afficher les erreurs</p>
+                    <pre><code contenteditable class="php">
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    </code></pre>
+                </section>
+
+                <section>
                     <p>Nous avons donc maintenant une variable <span class="hl">$pdo</span> qui gère la connexion à la base de données</p>   
                     <p>C'est un objet qui possède plusieurs méthodes permettant d'intéragir avec la base de données</p>
                     <p>Cette variable aurait pu s'appeler autrement<br>($db, $connect, ...)</p>

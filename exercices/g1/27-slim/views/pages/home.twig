@@ -1,0 +1,29 @@
+{% include 'partials/header.twig' %}
+
+    {{ 'now'|date('Y/m/d h:i:s', 'Europe/Paris') }}
+    <h1>{{ title|upper|reverse|replace({ 'O': '0' }) }}</h1>
+    {% set age = 'now'|date('Y') - yearOfBirth %}
+    J'ai {{ age ~ ' ans' }}
+    <img src="{{ picture }}" width="200" height="200">
+    {% if available %}
+        <br><small>Je suis dispo</small>
+    {% else %}
+        <br><small>Déso, pas dispo</small>
+    {% endif %}
+    <p>{{ introduction }}</p>
+    {# Ceci est un commentaire #}
+
+    <h2>Projects</h2>
+
+    {% for _key, _project in projects %}
+        <div class="project">
+            <h4>{{ (_key + 1) ~ ' - ' ~ _project.title }}</h4>
+            <p>{{ _project.description }}</p>
+        </div>
+    {% endfor %}
+
+    {% for _i in range(1, 10) %}
+        <a href="{{ path_for('page', { number: _i }) }}">{{ _i }}</a>
+    {% endfor %}
+
+{% include 'partials/footer.twig' %}

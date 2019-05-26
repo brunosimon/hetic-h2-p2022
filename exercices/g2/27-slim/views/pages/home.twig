@@ -1,0 +1,42 @@
+{% include 'partials/header.twig' %}
+
+    {# Un commentaire #}
+    {{ 'now'|date('Y/m/d h:i:s', 'Europe/Paris') }}
+    <h1>{{ title|upper|reverse|replace({ 'O': '0' }) }}</h1>
+    <img src="{{ picture }}" width="200" height="200">
+
+    {% set age = 'now'|date('Y') - yearOfBirth %}
+    <div>
+        J'ai {{ age ~ ' ans' }}
+    </div>
+
+    {% if available %}
+        <div>Contactez-moi, je suis dispo</div>
+    {% else %}
+        <div>Déso, pas dispo</div>
+    {% endif %}
+
+    <p>{{ introduction }}</p>
+
+    <h2>Projects</h2>
+
+    {% if projects is empty %}
+
+        <p>Pas de projet</p>
+
+    {% else %}
+
+        {% for _key, _project in projects %}
+            <div class="project">
+                <h3>{{ (_key + 1) ~ ' - ' ~ _project.title }}</h3>
+                <p>{{ _project.description }}</p>
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
+    {% for _i in range(1, 10) %}
+        <a href="page/{{ _i }}">{{ _i }}</a>
+    {% endfor %}
+
+{% include 'partials/footer.twig' %}
