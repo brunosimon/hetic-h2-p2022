@@ -23,3 +23,5 @@ canvas{background:#fff;}
 .op9  {opacity:0.9;}
 .op10 {opacity:0.10;}
 .no-wrap {white-space:nowrap;}
+.code-steps pre code {background:none;}
+.code-steps {clear:both;font-size:0 !important;margin-bottom: 10px !important;}

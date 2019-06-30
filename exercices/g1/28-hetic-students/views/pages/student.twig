@@ -1,5 +1,48 @@
 {% include 'partials/header.twig' %}
 
-Student
+<h2>{{ student.first_name ~ ' ' ~ student.last_name }}</h2>
+
+<h5>
+    <a href="{{ path_for('promotion', { year: promotion.year }) }}">P{{ promotion.year }}</a>
+</h5>
+
+<p>
+    <img src="https://avatars.dicebear.com/v2/gridy/{{ student.slug }}.svg" width="200" height="200">
+</p>
+
+<table class="table">
+    <tr>
+        <td>Development</td>
+        <td>
+            {% spaceless %}
+                {% for _i in range(1, student.skill_development) %}
+                    <span>⭑</span>
+                {% endfor %}
+            {% endspaceless %}
+        </td>
+    </tr>
+    <tr>
+        <td>Design</td>
+        <td>
+            {% spaceless %}
+                {% for _i in range(1, student.skill_design) %}
+                    <span>⭑</span>
+                {% endfor %}
+            {% endspaceless %}
+        </td>
+    </tr>
+    <tr>
+        <td>Marketing</td>
+        <td>
+            {% spaceless %}
+                {% for _i in range(1, student.skill_marketing) %}
+                    <span>⭑</span>
+                {% endfor %}
+            {% endspaceless %}
+        </td>
+    </tr>
+</table>
+
+<a href="{{ path_for('random_student') }}">Random student</a>
 
 {% include 'partials/footer.twig' %}

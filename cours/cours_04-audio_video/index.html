@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="fr">
-	<head>
+    <head>
         <meta charset="utf-8">
         <title>TRIM 1 - Cours 04 - Audio / Video</title>
         <meta name="description" content="">
@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="../src/reveal.js/css/reveal.css">
         <link rel="stylesheet" href="../src/reveal.js/css/theme/orange.css" id="theme">
-        <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css">
+        <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/railscasts.css"> -->
         <!-- <link rel="stylesheet" href="../src/reveal.js/lib/css/highlight/github.css"> -->
         <link rel="stylesheet" href="../src/custom/style.css">
         <script>
@@ -19,10 +19,15 @@
         <!--[if lt IE 9]>
             <script src="../src/reveal.js/lib/js/html5shiv.js"></script>
         <![endif]-->
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+
+        <!-- Code steps start -->
+        <link rel="stylesheet" href="../src/code-steps/prism-tomorrow.css">
+        <link rel="stylesheet" href="../src/code-steps/style.css">
+        <!-- Code steps end -->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
                 <section>
                     <h3>H2 - P2022</h3>
                     <h1>Développement web</h1>
@@ -34,10 +39,10 @@
                     </ul>
                 </section>
 
-				<section>
-					<h3>HTML5</h3>
-					<h1>Audio / Video</h1>
-				</section>
+                <section>
+                    <h3>HTML5</h3>
+                    <h1>Audio / Video</h1>
+                </section>
 
                 <section>
                     <p><span class="hl">APIs HTML5</span> permettant de lire des fichiers audio et vidéo directement dans la page à travers les balises <span class="hl">&lt;audio&gt;</span> et <span class="hl">&lt;video&gt;</span> sans utiliser Flash</p>
@@ -50,18 +55,30 @@
 
                 <section>
                     <h2>Exemples</h2>
-                    <pre><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                    >
+                        <pre contenteditable><code>
 &lt;audio src="audio.mp3"&gt;&lt;/audio&gt;
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
                     <p>Message de fallback pour les visiteurs dont le navigateur ne supporte pas l'audio</p>
-                    <pre><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                    >
+                        <pre contenteditable><code>
 &lt;audio src="audio.mp3"&gt;
     Your browser doesn't support video API
 &lt;/audio&gt;
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
@@ -87,7 +104,12 @@
 
                 <section>
                     <p>Il est inutile d'indiquer une valeurs aux attributs qui n'en nécessitent pas</p>
-                    <pre><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                    >
+                        <pre contenteditable><code>
 &lt;audio 
     src="audio.mp3"
     controls
@@ -95,7 +117,8 @@
     loop
     muted
 &gt;&lt;/audio&gt;
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
@@ -111,13 +134,19 @@
                     <h2>Formats</h2>
                     <p>Il est possible d'envoyer plusieurs formats et de laisser le navigateur choisir celui qu'il préfère</p>
                     <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility" target="_blank">Support des formats</a></p>
-                    <pre><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                    >
+                        <pre contenteditable><code>
 &lt;audio autoplay="autoplay" loop="loop" controls="controls"&gt;
     &lt;source src="audio.mp3" type="audio/mp3" /&gt;
     &lt;source src="audio.ogg" type="audio/ogg" /&gt;
     Your browser doesn't support audio API
 &lt;/audio&gt;
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
@@ -137,18 +166,30 @@
                 <section>
                     <h2>Exemples</h2>
                     <p>Le plus simple</p>
-                    <pre><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                    >
+                        <pre contenteditable><code>
 &lt;video src="video.mp4"&gt;&lt;/video&gt;
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
                     <p>Message de fallback pour les visiteurs dont le navigateur ne supporte pas la vidéo</p>
-                    <pre><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                    >
+                        <pre contenteditable><code>
 &lt;video src="video.mp4"&gt;
     Your browser doesn't support video API
 &lt;/video&gt;
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
@@ -182,7 +223,12 @@
 
                 <section>
                     <p>Il est inutile d'indiquer une valeurs aux attributs qui n'en nécessitent pas</p>
-                    <pre><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                    >
+                        <pre contenteditable><code>
 &lt;video 
     src="video.mp4" 
     poster="image.jpg"
@@ -193,21 +239,28 @@
     width="800"
     height="600"
 &gt;&lt;/video&gt;
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
                     <h2>Formats</h2>
                     <p>Il est possible d'envoyer plusieurs formats et de laisser le navigateur choisir celui qu'il préfère</p>
                     <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility" target="_blank">Support des formats</a></p>
-                    <pre><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                    >
+                        <pre contenteditable><code>
 &lt;video autoplay="autoplay" loop="loop" controls="controls" width="800"&gt;
     &lt;source src="video.mp4" type="video/mp4" /&gt;
     &lt;source src="video.webm" type="video/webm" /&gt;
     &lt;source src="video.ogv" type="video/ogg" /&gt;
     Your browser doesn't support video API
 &lt;/video&gt;
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
@@ -297,10 +350,18 @@
 
                 <section>
                     <p>Avant tout, il faut récupérer l'élément et le sauvegarder dans une variable.</p>
-                    <pre><code contenteditable class="javascript">
-// Assume we have only one &lt;video&gt; in the page
+                    <div
+                        class="code-steps"
+                        data-type="javascript"
+                        data-trim
+                        data-steps="
+                            *:En assumant qu'on a qu'une seule &lt;video&gt
+                        "
+                    >
+                        <pre contenteditable><code>
 const video = document.querySelector('video')
-                    </code></pre>
+                        </code></pre>
+                    </div>
                     <p>Une fois récupéré, on va pouvoir utiliser ses méthodes et modifier ses propriétés</p>
                 </section>
 
@@ -329,40 +390,99 @@ const video = document.querySelector('video')
 
                 <section>
                     <h2>Méthodes</h2>
-                    <ul>
-                        <li>play()</li>
-                        <li>pause()</li>
-                    </ul>
-                    <pre><code data-trim contenteditable class="javascript">
+                    <div
+                        class="code-steps"
+                        data-type="javascript"
+                        data-trim
+                        data-steps="
+                            *:;
+                            l1:Lance la lecture;
+                            l2:Met en pause
+                        "
+                    >
+                        <pre contenteditable><code>
 video.play()
 video.pause()
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
                     <h2>Propriétés</h2>
-                    <div style="width:60%;margin:0 auto;">
-                        <ul style="float:left;">
-                            <li>controls</li>
-                            <li>loop</li>
-                            <li>autoplay</li>
-                            <li>volume</li>
-                        </ul>
-                        <ul style="float:right;">
-                            <li>currentTime</li>
-                            <li>duration</li>
-                            <li>muted</li>
-                            <li><a href="http://www.w3schools.com/tags/ref_av_dom.asp" target="_blank">...</a></li>
-                        </ul>
-                    </div>
-                    <pre style="clear:both;"><code data-trim contenteditable class="javascript">
+
+                    <p>Les propriétés permettent de récupérer des infos</p>
+
+                    <div
+                        class="code-steps"
+                        data-type="javascript"
+                        data-trim
+                        data-steps="
+                            *:;
+                            l1:Log si les contrôles sont visibles;
+                            l2:Log si la vidéo boucle;
+                            l3:Log si la vidéo joue automatiquement;
+                            l4:Log si le son est coupé;
+                            l5:Log le volume de la vidéo;
+                            l6:Log à quel moment en est la lecture (en secondes);
+                            l7:Log la durée de la vidéo
+                        "
+                    >
+                        <pre contenteditable><code>
+console.log(video.controls)
+console.log(video.loop)
+console.log(video.autoplay)
+console.log(video.muted)
 console.log(video.volume)
-video.volume += 0.1
-                    </code></pre>
+console.log(video.currentTime)
+console.log(video.duration)
+                        </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Propriétés</h2>
+
+                    <p>Certaines de ces informations peuvent être modifées</p>
+
+                    <div
+                        class="code-steps"
+                        data-type="javascript"
+                        data-trim
+                        data-steps="
+                            *:;
+                            l1:Cache les contrôles;
+                            l2:Augmente légèrement le volume;
+                            l3:Place la lecture de la vidéo à la moitiée de sa durée
+                        "
+                    >
+                        <pre contenteditable><code>
+video.controls = false
+video.volume += 0.2
+video.currentTime = video.duration * 0.5
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
                     <h2>Événements</h2>
+                    <div
+                        class="code-steps"
+                        data-type="javascript"
+                        data-trim
+                        data-steps="
+                            *:;
+                            l1c1-l1c23,l4c3:Méthode permettant d'écouter un événement;
+                            l1c24-l1c29:Nom de l'événement;
+                            l1c32-l3,l4c1:Fonction de 'callback' déclenchée quand l'événement survient
+                        "
+                    >
+                        <pre contenteditable><code>
+video.addEventListener('play', (event) =>
+{
+    console.log('playing')
+})
+                        </code></pre>
+                    </div>
                     <div style="width:60%;margin:0 auto;">
                         <ul style="float:left;">
                             <li>play</li>
@@ -377,12 +497,6 @@ video.volume += 0.1
                             <li><a href="http://www.w3schools.com/tags/ref_av_dom.asp" target="_blank">...</a></li>
                         </ul>
                     </div>
-                    <pre style="clear:both;"><code data-trim contenteditable class="javascript">
-video.addEventListener('play', (event) =>
-{
-    console.log('playing')
-})
-                    </code></pre>
                 </section>
 
                 <section>
@@ -394,19 +508,40 @@ video.addEventListener('play', (event) =>
                     <h2>Exemples</h2>
                     <p><small>Écouter l'événement "click" sur un bouton pour augmenter le volume sans dépasser la limite</small></p>
 
-                    <pre style="clear:both;"><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                        data-steps="
+                            *:
+                        "
+                    >
+                        <pre contenteditable><code>
 &lt;video src="#"&gt;&lt;/video&gt;
 &lt;button class="volume-up"&gt;+&lt;/button&gt;
-                    </code></pre>
-                    <pre style="clear:both;"><code data-trim contenteditable class="javascript">
-// Retrieve elements
+                        </code></pre>
+                    </div>
+
+
+                    <div
+                        class="code-steps"
+                        data-type="javascript"
+                        data-trim
+                        data-steps="
+                            *:;
+                            l1-l2:Stock les éléments dans des variables;
+                            l4-l4c35,l14c2:Écoute l'événement de click sur le bouton volumeUp;
+                            l4c36-l14c1:Fonction de 'callback' qui sera déclenchée quand l'utilisateur cliquera;
+                            l6-l9:Si le volume dépasse 1, limiter à 1;
+                            l10-l13:Sinon, augmenter le volume de 0.1
+                        "
+                    >
+                        <pre contenteditable><code>
 const video = document.querySelector('video')
 const volumeUp = document.querySelector('.volume-up')
 
-// Listen to click event on button
 volumeUp.addEventListener('click', () =>
 {
-    // Test if volume above 1
     if(video.volume + 0.1 &gt; 1)
     {
         video.volume = 1
@@ -416,61 +551,103 @@ volumeUp.addEventListener('click', () =>
         video.volume += 0.1
     }
 })
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
                     <h2>Exemples</h2>
                     <p><small>Écouter l'événement "click" sur une div pour changer la position de la lecture<br>(CSS non inclus)</small></p>
 
-                    <pre style="clear:both;"><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                        data-steps="
+                            *:
+                        "
+                    >
+                        <pre contenteditable><code>
 &lt;video src="#"&gt;&lt;/video&gt;
-<div class="bar"></div>
-                    </code></pre>
-                    <pre style="clear:both;"><code data-trim contenteditable class="javascript">
-// Retrieve elements
+&lt;div class="bar"&gt;&lt;/div&gt;
+                        </code></pre>
+                    </div>
+
+                    <div
+                        class="code-steps"
+                        data-type="javascript"
+                        data-trim
+                        data-steps="
+                            *:;
+                            l1-l2:Stock les éléments dans des variables;
+                            l4-l4c30,l10c2:Écoute l'événement de click sur la bar;
+                            l4c30-l10c1:Fonction de 'callback' qui sera déclenchée quand l'utilisateur cliquera;
+                            l6:Calcul la position du click sur la bar entre 0 et 1 (0 si click tout à gauche, 1 si click tout à droite);
+                            l7:Calcul la position de lecture correspondant à ce ratio (en secondes);
+                            l9:Met à jour la position de lecture de la vidéo
+                        "
+                    >
+                        <pre contenteditable><code>
 const video = document.querySelector('video')
 const bar = document.querySelector('.bar')
 
-// Listen to click event on button
-bar.addEventListener('click', (event) =>
+bar.addEventListener('click', (_event) =>
 {
-    // Calculate video time using cursor position and bar width
-    const ratio = (event.clientX - bar.offsetLeft) / bar.offsetWidth
+    const ratio = (_event.clientX - bar.offsetLeft) / bar.offsetWidth
     const current = video.duration * ratio
 
-    // Update video time
     video.currentTime = current
 })
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
                     <h2>Exemples</h2>
                     <p><small>Mettre à jour le curseur d'une barre en fonction de l'avancement dans la vidéo<br>(CSS non inclus)</small></p>
 
-                    <pre style="clear:both;"><code data-trim contenteditable class="html">
+                    <div
+                        class="code-steps"
+                        data-type="html"
+                        data-trim
+                        data-steps="
+                            *:
+                        "
+                    >
+                        <pre contenteditable><code>
 &lt;video src="#"&gt;&lt;/video&gt;
-<div class="bar">
-    <div class="cursor"></div>
-</div>
-                    </code></pre>
-                    <pre style="clear:both;"><code data-trim contenteditable class="javascript">
-// Retrieve elements
+&lt;div class="bar"&gt;
+    &lt;div class="cursor"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                        </code></pre>
+                    </div>
+
+                    <div
+                        class="code-steps"
+                        data-type="javascript"
+                        data-trim
+                        data-steps="
+                            *:;
+                            l1-l3:Stock les éléments dans des variables;
+                            l5-l5c19,l10c2-l10c6:Déclenche une fonction toutes les 50ms;
+                            l5c20-l10c1:Fonction de 'callback' qui sera déclenchée toutes les 50ms;
+                            l7:Calcul la progression de lecture de la vidéo entre 0 et 1;
+                            l9:Scale la bar de lecture
+                        "
+                    >
+                        <pre contenteditable><code>
 const video = document.querySelector('video')
 const bar = document.querySelector('.bar')
 const cursor = document.querySelector('.cursor')
 
-// Execute fonction every 50ms
 window.setInterval(() =>
 {
-    // Calculate video time ratio
     const ratio = video.currentTime / video.duration
-    
-    // Update cursor scale
+
     cursor.style.transform = `scaleX(${ratio})`
 }, 50)
-                    </code></pre>
+                        </code></pre>
+                    </div>
                 </section>
 
                 <section>
@@ -484,12 +661,17 @@ window.setInterval(() =>
                         <li><a href="./demos/villain_baptiste/index.html" target="_blank">Villain Baptiste</a></li>
                     </ul>
                 </section>
-			</div>
-		</div>
+            </div>
+        </div>
 
         <script src="../src/caniuse-embed.min.js"></script>
         <script src="../src/reveal.js/lib/js/head.min.js"></script>
         <script src="../src/reveal.js/js/reveal.js"></script>
-        <script src="../src/custom/script.js"></script>
-	</body>
+
+        <!-- Code steps start -->
+        <script src="../src/code-steps/prism.js" data-manual></script>
+        <!-- Code steps end -->
+
+        <script type="module" src="../src/custom/script.js"></script>
+    </body>
 </html>
